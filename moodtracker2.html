@@ -1,232 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Period Mood Tracker</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        /* General body styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-image: url('homebg.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Period Mood Tracker</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        /* Header styles */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 30px;
-            background-color: #440e0e; /* Darker shade for visibility */
-            color: white;
-            position: fixed; /* Fixed at the top of the page */
-            width: 100%;
-            z-index: 1000; /* Ensures header is above other elements */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a shadow for better focus */
-            opacity: 0.95; /* Slight transparency for aesthetics */
-        }
+    /* Body with background image */
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('background.jpg.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background-color: #d94e73; /* Darker flamingo pink */
+      color: white;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      opacity: 0.95;
+    }
 
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
 
-        nav ul li {
-            margin: 0 15px;
-        }
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-        }
+    nav ul li {
+      margin: 0 15px;
+    }
 
-        nav ul li a:hover {
-            text-decoration: underline;
-        }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
 
-        /* Footer styles */
-        footer {
-            background-color: #7a0f0f;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            font-size: 14px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
 
-        /* Container for the mood tracker */
-        .tracker-container {
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            max-width: 400px;
-            margin: 80px auto; /* Push down below the fixed header */
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+    /* Footer */
+    footer {
+      background-color: #d94e73; /* Darker flamingo pink */
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 14px;
+      margin-top: auto;
+    }
 
-        h1 {
-            text-align: center;
-            color: #680b0b;
-        }
+    /* Tracker Container (Banner) */
+    .tracker-container {
+      background: rgba(217, 78, 115, 0.95); /* Slightly transparent flamingo pink */
+      padding: 20px;
+      border-radius: 10px;
+      border: 3px solid #b84363;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 400px;
+      margin: 100px auto 40px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
 
-        label {
-            font-size: 16px;
-            font-weight: bold;
-            margin-top: 10px;
-            display: block;
-        }
+    h1 {
+      text-align: center;
+      color: white;
+    }
 
-        select, input[type="date"] {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 14px;
-        }
+    label {
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+      color: white;
+    }
 
-        button {
-            width: 100%;
-            background-color: #7a0f0f;
-            color: white;
-            border: none;
-            padding: 10px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    select,
+    input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
 
-        button:hover {
-            background-color: #861616;
-        }
+    button {
+      width: 100%;
+      background-color: #b84363;
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
-        .log-container {
-            margin-top: 20px;
-        }
+    button:hover {
+      background-color: #a33656;
+    }
 
-        .log {
-            background: #e98e8e;
-            padding: 10px;
-            margin: 5px 0;
-            border-radius: 5px;
-        }
-    </style>
+    .log-container {
+      margin-top: 20px;
+    }
+
+    .log {
+      background: #f2b6c6;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+    }
+  </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <div class="logo">TrackHer</div>
-        <nav>
-            <ul>
-                <li><a href="homepageoffile.html">Home</a></li>
-                <li><a href="periodtracker.html">Tracker</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="menstrualcycle.html">Menstrual Cycle</a></li>
-            
-            </ul>
-        </nav>
-    </header>
+  <!-- Header -->
+  <header>
+    <div class="logo">TrackHer</div>
+    <nav>
+      <ul>
+        <li><a href="homepageoffile.html">Home</a></li>
+        <li><a href="periodtracker.html">Tracker</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="menstrualcycle.html">Menstrual Cycle</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- Main Content -->
-    <div class="tracker-container">
-        <h1>Track Your Mood</h1>
-        <form id="moodForm">
-            <label for="date">Select Date:</label>
-            <input type="date" id="date" required>
+  <!-- Main Content -->
+  <div class="tracker-container">
+    <h1>Track Your Mood</h1>
+    <form id="moodForm">
+      <label for="date">Select Date:</label>
+      <input type="date" id="date" required />
 
-            <label for="mood">Select Mood:</label>
-            <select id="mood" required>
-                <option value="" disabled selected>Choose your mood</option>
-                <option value="Happy">😊 Happy</option>
-                <option value="Sad">😢 Sad</option>
-                <option value="Irritated">😡 Irritated</option>
-                <option value="Tired">😴 Tired</option>
-                <option value="Crampy">😖 Crampy</option>
-                <option value="Energetic">💪 Energetic</option>
-            </select>
+      <label for="mood">Select Mood:</label>
+      <select id="mood" required>
+        <option value="" disabled selected>Choose your mood</option>
+        <option value="Happy">😊 Happy</option>
+        <option value="Sad">😢 Sad</option>
+        <option value="Irritated">😡 Irritated</option>
+        <option value="Tired">😴 Tired</option>
+        <option value="Crampy">😖 Crampy</option>
+        <option value="Energetic">💪 Energetic</option>
+      </select>
 
-            <button type="submit">Save Mood</button>
-        </form>
+      <button type="submit">Save Mood</button>
+    </form>
 
-        <div class="log-container">
-            <h2>Your Mood Log:</h2>
-            <div id="moodLog"></div>
-        </div>
+    <div class="log-container">
+      <h2 style="color: white;">Your Mood Log:</h2>
+      <div id="moodLog"></div>
     </div>
+  </div>
 
-    <!-- Footer Section -->
-    <footer>
-        &copy; 2024 Period Mood Tracker. All Rights Reserved.
-    </footer>
+  <!-- Footer -->
+  <footer>
+    &copy; 2024 Period Mood Tracker. All Rights Reserved.
+  </footer>
 
-    <script>
-        const form = document.getElementById('moodForm');
-        const moodLog = document.getElementById('moodLog');
+  <script>
+    const form = document.getElementById("moodForm");
+    const moodLog = document.getElementById("moodLog");
+    const moodData = [];
 
-        // Mood Tracker Data Storage
-        const moodData = [];
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const date = document.getElementById("date").value;
+      const mood = document.getElementById("mood").value;
 
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
+      if (!date || !mood) {
+        alert("Please fill in all fields!");
+        return;
+      }
 
-            const date = document.getElementById('date').value;
-            const mood = document.getElementById('mood').value;
+      moodData.push({ date, mood });
+      updateMoodLog();
+      form.reset();
+    });
 
-            if (!date || !mood) {
-                alert("Please fill in all fields!");
-                return;
-            }
-
-            // Save to mood data
-            moodData.push({ date, mood });
-
-            // Update the mood log
-            updateMoodLog();
-
-            // Clear form
-            form.reset();
-        });
-
-        function updateMoodLog() {
-            moodLog.innerHTML = "";
-
-            moodData.forEach((entry) => {
-                const logEntry = document.createElement('div');
-                logEntry.className = 'log';
-                logEntry.innerHTML = `<strong>Date:</strong> ${entry.date} <br> <strong>Mood:</strong> ${entry.mood}`;
-                moodLog.appendChild(logEntry);
-            });
-        }
-    </script>
+    function updateMoodLog() {
+      moodLog.innerHTML = "";
+      moodData.forEach((entry) => {
+        const logEntry = document.createElement("div");
+        logEntry.className = "log";
+        logEntry.innerHTML = `<strong>Date:</strong> ${entry.date} <br> <strong>Mood:</strong> ${entry.mood}`;
+        moodLog.appendChild(logEntry);
+      });
+    }
+  </script>
 </body>
 </html>
