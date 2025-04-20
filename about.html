@@ -9,24 +9,20 @@
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
   <style>
+    /* Body and background styling */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
-      background: url('homebg.jpg') no-repeat center center/cover;
+      background-color: #ffe6f0; /* Baby pink */
+      background-image: url('Untitled design.png'); /* Your background */
+      background-repeat: repeat;
+      background-size: 300px;
       color: #ffffff;
-      position: relative;
       overflow-x: hidden;
     }
 
-    body::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: -1;
-    }
-
+    /* Header styling */
     header {
       display: flex;
       justify-content: space-between;
@@ -35,6 +31,7 @@
       background-color: #9e3636;
       color: white;
       box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      border-bottom: 3px solid #f7a200;
     }
 
     .logo {
@@ -42,6 +39,7 @@
       font-weight: bold;
     }
 
+    /* Navigation bar styling */
     nav ul {
       list-style: none;
       display: flex;
@@ -52,3 +50,200 @@
 
     nav ul li a {
       color: white;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: #f7a200;
+    }
+
+    /* Main content area styling */
+    main {
+      padding: 40px;
+    }
+
+    h1 {
+      color: #fff;
+      font-size: 36px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #fefefe;
+    }
+
+    /* Menstrual Cycle Features Section Styling */
+    .cycle-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px 0;
+    }
+
+    .feature-card {
+      background-color: #ffffff;
+      color: #333;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .feature-card h3 {
+      color: #9e3636;
+      font-size: 24px;
+    }
+
+    .feature-card p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    /* Meet Our Team Section Styling */
+    .team-section {
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .team-section h2 {
+      font-size: 32px;
+      color: #9e3636;
+      margin-bottom: 30px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .team-member {
+      background-color: #ffffff;
+      color: #333;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .team-member img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+
+    .team-member h3 {
+      font-size: 22px;
+      color: #9e3636;
+    }
+
+    .team-member p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    /* Footer styling */
+    footer {
+      background-color: #9e3636;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="logo">TrackHer</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content Section -->
+  <main>
+    <h1>Welcome to TrackHer</h1>
+    <p>Track your menstrual health and embrace period positivity with TrackHer.</p>
+
+    <!-- Menstrual Cycle Features Section -->
+    <section class="cycle-features">
+      <div class="feature-card" data-aos="fade-up">
+        <h3>Menstrual Phase</h3>
+        <p>The first phase of the cycle, when menstruation occurs. It usually lasts 3-7 days and marks the beginning of the cycle.</p>
+      </div>
+      <div class="feature-card" data-aos="fade-up">
+        <h3>Follicular Phase</h3>
+        <p>After menstruation ends, this phase occurs when the body prepares for ovulation. It typically lasts around 7-10 days.</p>
+      </div>
+      <div class="feature-card" data-aos="fade-up">
+        <h3>Ovulation</h3>
+        <p>Ovulation is when an egg is released from the ovary and is ready for fertilization. This phase usually lasts for about 24 hours.</p>
+      </div>
+      <div class="feature-card" data-aos="fade-up">
+        <h3>Luteal Phase</h3>
+        <p>The final phase of the cycle, when the body prepares for a possible pregnancy. If the egg isn’t fertilized, this phase leads to menstruation.</p>
+      </div>
+    </section>
+
+    <!-- Meet Our Team Section -->
+    <section class="team-section">
+      <h2>Meet Our Team</h2>
+      <div class="team-grid">
+        <div class="team-member" data-aos="fade-up">
+          <img src="team-member1.jpg" alt="Team Member 1">
+          <h3>Muskan</h3>
+          <p>Project Lead</p>
+          <p>Muskan is a passionate developer who leads the project and coordinates the team to build TrackHer.</p>
+        </div>
+        <div class="team-member" data-aos="fade-up">
+          <img src="team-member2.jpg" alt="Team Member 2">
+          <h3>Amit</h3>
+          <p>UI/UX Designer</p>
+          <p>Amit focuses on the visual design and user experience of TrackHer to make sure it’s both beautiful and functional.</p>
+        </div>
+        <div class="team-member" data-aos="fade-up">
+          <img src="team-member3.jpg" alt="Team Member 3">
+          <h3>Ritika</h3>
+          <p>Frontend Developer</p>
+          <p>Ritika works on implementing the design and developing the frontend components to ensure a smooth user experience.</p>
+        </div>
+        <div class="team-member" data-aos="fade-up">
+          <img src="team-member4.jpg" alt="Team Member 4">
+          <h3>Vikash</h3>
+          <p>Backend Developer</p>
+          <p>Vikash handles the server-side development, ensuring smooth communication between the frontend and database.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>TrackHer - All rights reserved © 2025</p>
+  </footer>
+
+  <!-- AOS Initialization -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>
