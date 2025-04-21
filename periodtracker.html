@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background-image: url('homepagebg.jpg');
+            background-image: url('Untitled design.png'); /* Updated background image */
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -52,6 +52,7 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
+            outline: none;
         }
 
         .go-back:hover {
@@ -59,9 +60,13 @@
             color: white;
         }
 
+        .go-back:focus {
+            outline: 3px solid #cc2f56;
+        }
+
         .container {
             max-width: 400px;
-            background-color: rgb(138, 57, 57);
+            background-color: rgba(138, 57, 57, 0.9); /* Slight transparency for background visibility */
             padding: 30px;
             border-radius: 15px;
             align-items: center;
@@ -76,7 +81,7 @@
             color:rgb(255, 255, 255);
             margin-bottom: 20px;
         }
-        
+
         label {
             font-size: 14px;
             color: #ffffff;
@@ -112,10 +117,15 @@
             font-size: 16px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            outline: none;
         }
 
         button:hover {
             background-color: #962828;
+        }
+
+        button:focus {
+            outline: 3px solid #cc6c6c;
         }
 
         .result {
@@ -189,3 +199,7 @@
 </body>
 </html>
 
+            
+            
+
+    
