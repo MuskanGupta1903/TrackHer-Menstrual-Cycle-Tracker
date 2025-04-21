@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Period Mood Tracker</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('background.jpg.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background-color: #d94e73;
+      color: white;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      opacity: 0.95;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #d94e73;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 14px;
+      margin-top: auto;
+    }
+
+    .tracker-container {
+      background: rgba(217, 78, 115, 0.95);
+      padding: 20px;
+      border-radius: 10px;
+      border: 3px solid #b84363;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 500px;
+      margin: 120px auto 40px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    h1 {
+      text-align: center;
+      color: white;
+    }
+
+    label {
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+      color: white;
+    }
+
+    select,
+    input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      background-color: #b84363;
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #a33656;
+    }
+
+    .log-container {
+      margin-top: 20px;
+    }
+
+    .log {
+      background: #f2b6c6;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .log span {
+      flex: 1;
+    }
+
+    .log-buttons button {
+      margin-left: 5px;
+      padding: 5px 10px;
+      font-size: 12px;
+    }
+
+    canvas {
+      margin-top: 30px;
+      background: white;
+      border-radius: 8px;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">TrackHer</div>
+    <nav>
+      <ul>
+        <li><a href="homepageoffile.html">Home</a></li>
+        <li><a href="periodtracker.html">Tracker</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="menstrualcycle.html">Menstrual Cycle</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="tracker-container">
+    <h1>Track Your Mood</h1>
+    <form id="moodForm">
+      <label for="date">Select Date:</label>
+      <input type="date" id="date" required />
+
+      <label for="mood">Select Mood:</label>
+      <select id="mood" required>
+        <option value="" disabled selected>Choose your mood</option>
+        <option value="😊 Happy">😊 Happy</option>
+        <option value="😢 Sad">😢 Sad</option>
+        <option value="😡 Irritated">😡 Irritated</option>
+        <option value="😴 Tired">😴 Tired</option>
+        <option value="😖 Crampy">😖 Crampy</option>
+        <option value="💪 Energetic">💪 Energetic</option>
+      </select>
+
+      <button type="submit">Save Mood</button>
+      <button type="button" id="clearLog">Clear All</button>
+    </form>
+
+    <div class="log-container">
+      <h2 style="color: white;">Your Mood Log:</h2>
+      <div id="moodLog"></div>
+    </div>
+
+    <canvas id="moodChart" width="400" height="200"></canvas>
+  </div>
+
+  <footer>
+    &copy; 2024 Period Mood Tracker. All Rights Reserved.
+  </footer>
+
+  <script>
+    const form = document.getElementById("moodForm");
+    const moodLog = document.getElementById("moodLog");
+    const clearLogBtn = document.getElementById("clearLog");
+    const moodChartCanvas = document.getElementById("moodChart");
+    let moodData = JSON.parse(localStorage.getItem("moodData")) || [];
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const date = document.getElementById("date").value;
+      const mood = document.getElementById("mood").value;
+      if (!date || !mood) return alert("Please fill in all fields!");
+
+      moodData.push({ date, mood });
+      saveAndRender();
+      form.reset();
+    });
+
+    clearLogBtn.addEventListener("click", () => {
+      if (confirm("Are you sure you want to clear all entries?")) {
+        moodData = [];
+        saveAndRender();
+      }
+    });
+
+    function saveAndRender() {
+      localStorage.setItem("moodData", JSON.stringify(moodData));
+      updateMoodLog();
+      renderChart();
+    }
+
+    function updateMoodLog() {
+      moodLog.innerHTML = "";
+      moodData.forEach((entry, index) => {
+        const logEntry = document.createElement("div");
+        logEntry.className = "log";
+        logEntry.innerHTML = `
+          <span><strong>${entry.date}</strong> - ${entry.mood}</span>
+          <div class="log-buttons">
+            <button onclick="editEntry(${index})">Edit</button>
+            <button onclick="deleteEntry(${index})">Delete</button>
+          </div>`;
+        moodLog.appendChild(logEntry);
+      });
+    }
+
+    window.editEntry = (index) => {
+      const { date, mood } = moodData[index];
+      document.getElementById("date").value = date;
+      document.getElementById("mood").value = mood;
+      moodData.splice(index, 1); // remove current entry before editing
+      saveAndRender();
+    };
+
+    window.deleteEntry = (index) => {
+      moodData.splice(index, 1);
+      saveAndRender();
+    };
+
+    function renderChart() {
+      const dates = moodData.map(entry => entry.date);
+      const moods = moodData.map(entry => entry.mood.split(" ")[1]);
+
+      const moodCounts = {};
+      moods.forEach(mood => moodCounts[mood] = (moodCounts[mood] || 0) + 1);
+
+      const ctx = moodChartCanvas.getContext("2d");
+      if (window.myChart) window.myChart.destroy();
+      window.myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: Object.keys(moodCounts),
+          datasets: [{
+            label: 'Mood Frequency',
+            data: Object.values(moodCounts),
+            backgroundColor: '#b84363'
+          }]
+        },
+        options: {
+          plugins: {
+            legend: { display: false },
+          },
+          scales: {
+            y: { beginAtZero: true }
+          }
+        }
+      });
+    }
+
+    // Init
+    saveAndRender();
+  </script>
+</body>
+</html>
