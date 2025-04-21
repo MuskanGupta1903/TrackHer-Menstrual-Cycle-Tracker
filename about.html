@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - TrackHer</title>
+
+  <!-- AOS Library for animations -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffe6f0;
+      background-image: url('Untitled design.png');
+      background-repeat: repeat;
+      background-size: 300px;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    header, footer {
+      background-color: #d94e73; /* Solid color instead of gradient */
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      border-bottom: 3px solid #f7a200;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: #f7a200;
+      transform: scale(1.1);
+      z-index: 1;
+    }
+
+    .banner {
+      background-color: #d94e73;
+      color: white;
+      text-align: center;
+      padding: 20px 20px;
+      margin: 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .banner h1 {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .banner p {
+      font-size: 14px;
+      font-weight: 300;
+      margin-top: 0;
+      font-style: italic;
+    }
+
+    main {
+      padding: 40px;
+    }
+
+    .cycle-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px 0;
+    }
+
+    .feature-card {
+      background-color: #ffffff;
+      color: #333;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(217, 78, 115, 0.4);
+    }
+
+    .feature-card h3 {
+      color: #9e3636;
+      font-size: 24px;
+    }
+
+    .feature-card p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    .feature-card h3::before {
+      content: "🩸";
+      display: block;
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .feature-card:nth-child(2) h3::before {
+      content: "🌱";
+    }
+
+    .feature-card:nth-child(3) h3::before {
+      content: "🔵";
+    }
+
+    .feature-card:nth-child(4) h3::before {
+      content: "🌙";
+    }
+
+    .team-section {
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .team-section h2 {
+      font-size: 32px;
+      color: #9e3636;
+      margin-bottom: 30px;
+    }
+
+    .team-grid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .team-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .team-member {
+      background-color: #ffffff;
+      color: #333;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 300px;
+      word-wrap: break-word;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .team-member:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(217, 78, 115, 0.4);
+    }
+
+    .team-member h3 {
+      font-size: 22px;
+      color: #9e3636;
+    }
+
+    .team-member p {
+      font-size: 16px;
+      color: #555;
+      margin: 8px 0;
+    }
+
+    .team-member a {
+      color: #d94e73;
+      text-decoration: none;
+      word-break: break-word;
+    }
+
+    .team-member a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">TrackHer</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="banner">
+    <h1>Welcome to TrackHer</h1>
+    <p>Track your menstrual health and embrace period positivity with TrackHer.</p>
+  </section>
+
+  <main>
+    <section class="cycle-features">
+      <div class="feature-card" data-aos="fade-up">
+        <h3>Menstrual Phase</h3>
+        <p>The first phase of the cycle, when menstruation occurs. It usually lasts 3-7 days and marks the beginning of the cycle.</p>
+      </div>
+      <div class="feature-card" data-aos="fade-up">
+        <h3>Follicular Phase</h3>
+        <p>After menstruation ends, this phase occurs when the body prepares for ovulation. It typically lasts around 7-10 days.</p>
+      </div>
+      <div class="feature-card" data-aos="fade-up">
+        <h3>Ovulation</h3>
+        <p>Ovulation is when an egg is released from the ovary and is ready for fertilization. This phase usually lasts for about 24 hours.</p>
+      </div>
+      <div class="feature-card" data-aos="fade-up">
+        <h3>Luteal Phase</h3>
+        <p>The final phase of the cycle, when the body prepares for a possible pregnancy. If the egg isn’t fertilized, this phase leads to menstruation.</p>
+      </div>
+    </section>
+
+    <section class="team-section">
+      <h2>Meet Our Team</h2>
+      <div class="team-grid">
+        <div class="team-row">
+          <div class="team-member" data-aos="fade-up">
+            <h3>Muskan</h3>
+            <p><strong>CEO & Visionary</strong></p>
+            <p>Email: <a href="mailto:muskan0465.becse24@chitkara.edu.in">muskan0465.becse24@chitkara.edu.in</a></p>
+            <p>Muskan is the driving force behind TrackHer, blending leadership with empathy to ensure the platform empowers and supports menstruators everywhere.</p>
+          </div>
+          <div class="team-member" data-aos="fade-up">
+            <h3>Himanshi Garg</h3>
+            <p><strong>Creative Head</strong></p>
+            <p>Email: <a href="mailto:himanshi0409.becse24@chitkara.edu.in">himanshi0409.becse24@chitkara.edu.in</a></p>
+            <p>Himanshi brings vibrant creativity and bold design thinking to TrackHer, shaping its unique visual identity and tone.</p>
+          </div>
+        </div>
+        <div class="team-row">
+          <div class="team-member" data-aos="fade-up">
+            <h3>Mishthi</h3>
+            <p><strong>Lead Developer</strong></p>
+            <p>Email: <a href="mailto:mishthi0457.becse24@chitkara.edu.in">mishthi0457.becse24@chitkara.edu.in</a></p>
+            <p>Mishthi leads the technical development of TrackHer, translating vision into seamless digital experiences with innovation and precision.</p>
+          </div>
+          <div class="team-member" data-aos="fade-up">
+            <h3>Himanshi Bansal</h3>
+            <p><strong>Content Head</strong></p>
+            <p>Email: <a href="mailto:himanshi0408.becse24@chitkara.edu.in">himanshi0408.becse24@chitkara.edu.in</a></p>
+            <p>Himanshi crafts compelling, empathetic content that educates and inspires, ensuring TrackHer’s voice is always empowering and informative.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>TrackHer - All rights reserved © 2025</p>
+  </footer>
+
+  <!-- AOS Initialization -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>

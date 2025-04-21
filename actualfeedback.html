@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feedback Form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url("Untitled design.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    header {
+      background-color: #d94e73;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+      color: #ffe2ea;
+    }
+
+    main {
+      flex: 1;
+      margin: 30px 20px;
+    }
+
+    h1 {
+      font-size: 38px;
+      text-align: center;
+      margin-bottom: 5px;
+    }
+
+    p {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 16px;
+      color: #444;
+    }
+
+    .feedback-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: rgba(217, 78, 115, 0.95);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      color: white;
+      transition: transform 0.3s ease;
+    }
+
+    .feedback-form:hover {
+      transform: scale(1.01);
+    }
+
+    .feedback-form label {
+      font-size: 18px;
+      margin-bottom: 8px;
+      display: block;
+      text-align: left;
+    }
+
+    .feedback-form input[type="text"],
+    .feedback-form input[type="email"],
+    .feedback-form textarea {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 10px 0 20px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      background-color: #fff;
+      color: #333;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .feedback-form input:focus,
+    .feedback-form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+    }
+
+    .feedback-form textarea {
+      height: 140px;
+      resize: vertical;
+    }
+
+    .feedback-form button {
+      width: 100%;
+      padding: 14px;
+      background-color: #fff;
+      color: #d94e73;
+      border: none;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .feedback-form button:hover {
+      background-color: #f3d2da;
+      transform: scale(1.02);
+    }
+
+    .field-icon {
+      font-size: 18px;
+      margin-right: 5px;
+    }
+
+    .shake {
+      animation: shake 0.3s ease-in-out;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-5px); }
+      40%, 80% { transform: translateX(5px); }
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      color: #333;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      z-index: 999;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    footer {
+      background-color: #d94e73;
+      color: white;
+      text-align: center;
+      padding: 18px;
+      font-size: 14px;
+      margin-top: auto;
+    }
+
+    footer .footer-links a {
+      color: white;
+      text-decoration: none;
+      margin: 0 12px;
+    }
+
+    footer .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    footer .socials {
+      margin-top: 8px;
+      font-size: 18px;
+    }
+
+    @media (max-width: 600px) {
+      .feedback-form {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">TrackHer</div>
+    <nav>
+      <ul>
+        <li><a href="homepageoffile.html">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <h1>We Value Your Feedback</h1>
+    <p>Please share your thoughts with us to help us improve.</p>
+
+    <div class="feedback-form">
+      <form id="feedbackForm">
+        <label for="name"><span class="field-icon">👤</span>Your Name:</label>
+        <input type="text" id="name" name="name" required placeholder="Enter your name" />
+
+        <label for="email"><span class="field-icon">📧</span>Your Email:</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email" />
+
+        <label for="comments"><span class="field-icon">📝</span>Your Feedback:</label>
+        <textarea id="comments" name="comments" required placeholder="Write your comments here..."></textarea>
+
+        <button type="submit">Submit Feedback</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- Success Popup -->
+  <div class="popup" id="successPopup">
+    🎉 Thank you for your feedback!
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div>&copy; 2024 TrackHer. All Rights Reserved.</div>
+    <div class="footer-links">
+      <a href="terms.html">Terms & Conditions</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+    <div class="socials">
+      🌐 ✉️ 📱
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    const form = document.getElementById('feedbackForm');
+    const popup = document.getElementById('successPopup');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const comments = form.comments.value.trim();
+
+      if (!name || !email || !comments) {
+        form.classList.add('shake');
+        setTimeout(() => form.classList.remove('shake'), 400);
+        return;
+      }
+
+      popup.style.display = 'block';
+      setTimeout(() => {
+        popup.style.display = 'none';
+        form.reset();
+      }, 3000);
+    });
+  </script>
+
+</body>
+</html>
