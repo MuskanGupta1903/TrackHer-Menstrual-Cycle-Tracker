@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('background.jpg.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #d94e73;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      flex: 1;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    h1 {
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #d94e73; /* New color for heading */
+    }
+
+    .tabs {
+      background-color: rgba(255, 255, 255, 0.95);
+      max-width: 1000px;
+      margin: 0 auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .tab-buttons {
+      display: flex;
+      overflow-x: auto;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .tab-buttons button {
+      flex: 1 0 auto;
+      padding: 22px 32px;
+      font-size: 20px;
+      height: 70px;
+      background: #f2b6c6;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+      white-space: nowrap;
+    }
+
+    .tab-buttons button.active {
+      background-color: #d94e73;
+      color: white;
+      font-weight: bold;
+    }
+
+    .tab-content {
+      padding: 20px;
+      display: none;
+      font-size: 18px;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    footer {
+      background-color: #d94e73;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+
+    footer .footer-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      margin: 0 10px;
+    }
+
+    footer .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .tab-buttons button {
+        font-size: 16px;
+        padding: 16px;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">TrackHer</div>
+    <nav>
+      <ul>
+        <li><a href="homepageoffile.html">Home</a></li>
+        <li><a href="periodtracker.html">Tracker</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="periodpositivity.html">Period Positivity</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <h1>Privacy Policy</h1>
+    <div class="tabs">
+      <div class="tab-buttons">
+        <button class="active" onclick="openTab(event, 'intro')">Introduction</button>
+        <button onclick="openTab(event, 'collect')">Information We Collect</button>
+        <button onclick="openTab(event, 'use')">How We Use Your Info</button>
+        <button onclick="openTab(event, 'security')">Data Security</button>
+        <button onclick="openTab(event, 'cookies')">Cookies</button>
+        <button onclick="openTab(event, 'thirdparty')">Third-Party Links</button>
+        <button onclick="openTab(event, 'changes')">Policy Changes</button>
+        <button onclick="openTab(event, 'contact')">Contact Us</button>
+      </div>
+
+      <div id="intro" class="tab-content active">
+        <p>Welcome to TrackHer! We are committed to protecting and respecting your privacy. This Privacy Policy explains how we collect, use, and disclose your personal information when you use our services.</p>
+      </div>
+
+      <div id="collect" class="tab-content">
+        <p>We may collect personal information such as your name, email address, and other details necessary for providing our services. This information may be collected when you register on our website, subscribe to our newsletter, or interact with the website in other ways.</p>
+      </div>
+
+      <div id="use" class="tab-content">
+        <p>Your information may be used to:</p>
+        <ul>
+          <li>Provide and improve our services.</li>
+          <li>Send you updates and promotions related to our services.</li>
+          <li>Respond to your inquiries and provide customer support.</li>
+          <li>Monitor and analyze usage patterns to improve user experience.</li>
+        </ul>
+      </div>
+
+      <div id="security" class="tab-content">
+        <p>We take reasonable measures to protect your personal information from unauthorized access, alteration, or disclosure. However, no method of transmission over the internet or electronic storage is 100% secure, so we cannot guarantee absolute security.</p>
+      </div>
+
+      <div id="cookies" class="tab-content">
+        <p>Our website uses cookies to enhance your user experience. A cookie is a small text file that is stored on your device when you visit our website. You can choose to disable cookies in your browser settings, but please note that some features of the website may not function correctly without them.</p>
+      </div>
+
+      <div id="thirdparty" class="tab-content">
+        <p>Our website may contain links to third-party websites. We are not responsible for the content or privacy practices of these external sites. Please review their privacy policies before providing any personal information to them.</p>
+      </div>
+
+      <div id="changes" class="tab-content">
+        <p>We may update our Privacy Policy from time to time. Any changes will be posted on this page with an updated revision date. We encourage you to review this policy periodically for any updates.</p>
+      </div>
+
+      <div id="contact" class="tab-content">
+        <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:info@trackher.com">info@trackher.com</a>.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div>&copy; 2024 TrackHer. All Rights Reserved.</div>
+    <div class="footer-links">
+      <a href="terms.html">Terms & Conditions</a>
+      <a href="feedback.html">Feedback</a>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    function openTab(evt, tabName) {
+      const contents = document.querySelectorAll(".tab-content");
+      const buttons = document.querySelectorAll(".tab-buttons button");
+
+      contents.forEach((content) => content.classList.remove("active"));
+      buttons.forEach((btn) => btn.classList.remove("active"));
+
+      document.getElementById(tabName).classList.add("active");
+      evt.currentTarget.classList.add("active");
+    }
+  </script>
+
+</body>
+</html>
