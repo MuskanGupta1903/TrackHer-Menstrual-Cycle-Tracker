@@ -63,12 +63,12 @@
       font-size: 36px;
       text-align: center;
       margin-bottom: 20px;
-      color: white;
+      color: #d94e73; /* New color for heading */
     }
 
     .tabs {
       background-color: rgba(255, 255, 255, 0.95);
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -81,13 +81,15 @@
     }
 
     .tab-buttons button {
-      flex: 1;
-      padding: 12px 16px;
+      flex: 1 0 auto;
+      padding: 22px 32px;
+      font-size: 20px;
+      height: 70px;
       background: #f2b6c6;
       border: none;
       cursor: pointer;
-      font-size: 16px;
       transition: background 0.3s;
+      white-space: nowrap;
     }
 
     .tab-buttons button.active {
@@ -125,6 +127,14 @@
     footer .footer-links a:hover {
       text-decoration: underline;
     }
+
+    @media (max-width: 600px) {
+      .tab-buttons button {
+        font-size: 16px;
+        padding: 16px;
+        height: auto;
+      }
+    }
   </style>
 </head>
 <body>
@@ -150,11 +160,11 @@
       <div class="tab-buttons">
         <button class="active" onclick="openTab(event, 'intro')">Introduction</button>
         <button onclick="openTab(event, 'collect')">Information We Collect</button>
-        <button onclick="openTab(event, 'use')">How We Use Your Information</button>
+        <button onclick="openTab(event, 'use')">How We Use Your Info</button>
         <button onclick="openTab(event, 'security')">Data Security</button>
         <button onclick="openTab(event, 'cookies')">Cookies</button>
         <button onclick="openTab(event, 'thirdparty')">Third-Party Links</button>
-        <button onclick="openTab(event, 'changes')">Changes to This Policy</button>
+        <button onclick="openTab(event, 'changes')">Policy Changes</button>
         <button onclick="openTab(event, 'contact')">Contact Us</button>
       </div>
 
@@ -207,6 +217,7 @@
     </div>
   </footer>
 
+  <!-- JavaScript -->
   <script>
     function openTab(evt, tabName) {
       const contents = document.querySelectorAll(".tab-content");
