@@ -14,6 +14,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -192,18 +196,50 @@
     }
 
     .calendar div.selected {
-      background-color: #d94e73;
+      background-color: #84344a;
       color: white;
     }
 
     .calendar div.fertile {
-      background-color: #ffeb3b; /* Yellow for fertile days */
+      background-color: #ffe67a;
       color: #000;
     }
 
     .calendar div.period {
-      background-color: #d94e73; /* Red for period days */
+      background-color: #f35c7a;
       color: white;
+    }
+
+    .legend {
+      margin-top: 20px;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .legend p {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+
+    .legend-box {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      margin-right: 8px;
+    }
+
+    .legend-box.period {
+      background-color: #f35c7a;
+    }
+
+    .legend-box.fertile {
+      background-color: #ffe67a;
+    }
+
+    .legend-box.selected {
+      background-color: #84344a;
     }
 
     .symptom-tracker {
@@ -270,12 +306,17 @@
 
     <div class="result" id="result"></div>
     <div class="calendar" id="calendar"></div>
+
+    <!-- Color Legend -->
+    <div class="legend">
+      <p><span class="legend-box period"></span> Period Days</p>
+      <p><span class="legend-box fertile"></span> Fertile Window</p>
+      <p><span class="legend-box selected"></span> Predicted Start Date</p>
+    </div>
   </div>
 
-  <!-- Period Symptoms Tracker -->
   <div class="symptom-tracker">
     <h2>Track Your Symptoms</h2>
-
     <label for="symptoms">Select Symptoms You Are Experiencing:</label>
     <div id="symptoms">
       <label><input type="checkbox" id="cramps"> Cramps</label>
@@ -287,9 +328,7 @@
       <label><input type="checkbox" id="other"> Other</label>
       <input type="text" id="otherSymptoms" placeholder="Specify other symptoms..." style="display:none;">
     </div>
-
     <button onclick="logSymptoms()">Log Symptoms</button>
-
     <div id="loggedSymptoms" class="symptom-list">
       <h3>Logged Symptoms:</h3>
       <ul id="symptomsList"></ul>
@@ -301,7 +340,6 @@
   </footer>
 
   <script>
-    // Calculate next period date
     function calculateNextPeriod() {
       const lastPeriodValue = document.getElementById('lastPeriod').value;
       const cycleLength = parseInt(document.getElementById('cycleLength').value);
@@ -322,7 +360,6 @@
       showCalendar(nextPeriodDate, periodLength, cycleLength);
     }
 
-    // Show the cycle calendar with highlighted period and fertile days
     function showCalendar(periodDate, periodLength, cycleLength) {
       const calendarContainer = document.getElementById('calendar');
       const month = periodDate.getMonth();
@@ -346,17 +383,14 @@
         const dayDiv = document.createElement('div');
         dayDiv.textContent = day;
 
-        // Highlight period days in red
         if (day >= selectedDay && day < selectedDay + periodLength) {
           dayDiv.classList.add('period');
         }
 
-        // Highlight fertile days in yellow
         if (day >= fertileWindowStart && day <= fertileWindowEnd) {
           dayDiv.classList.add('fertile');
         }
 
-        // Highlight the selected day (next period day)
         if (day === selectedDay) {
           dayDiv.classList.add('selected');
         }
@@ -365,14 +399,11 @@
       }
     }
 
-    // Log symptoms to the list
     function logSymptoms() {
       const symptomsList = document.getElementById('symptomsList');
-      symptomsList.innerHTML = ''; // Clear previous list
-
+      symptomsList.innerHTML = '';
       const selectedSymptoms = [];
 
-      // Check if the user selected predefined symptoms
       if (document.getElementById('cramps').checked) selectedSymptoms.push('Cramps');
       if (document.getElementById('bloating').checked) selectedSymptoms.push('Bloating');
       if (document.getElementById('headaches').checked) selectedSymptoms.push('Headaches');
@@ -380,12 +411,10 @@
       if (document.getElementById('fatigue').checked) selectedSymptoms.push('Fatigue');
       if (document.getElementById('acne').checked) selectedSymptoms.push('Acne');
 
-      // Check if the user entered a custom symptom
       if (document.getElementById('other').checked && document.getElementById('otherSymptoms').value.trim()) {
         selectedSymptoms.push(document.getElementById('otherSymptoms').value.trim());
       }
 
-      // Display the logged symptoms
       if (selectedSymptoms.length > 0) {
         selectedSymptoms.forEach(function(symptom) {
           const listItem = document.createElement('li');
@@ -397,11 +426,9 @@
       }
     }
 
-    // Show/hide the "Other" input field based on user selection
     document.getElementById('other').addEventListener('change', function() {
       document.getElementById('otherSymptoms').style.display = this.checked ? 'block' : 'none';
     });
   </script>
-
 </body>
 </html>
