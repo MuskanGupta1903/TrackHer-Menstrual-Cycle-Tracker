@@ -1,306 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Menstrual Cycle Tracker</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menstrual Cycle Tracker</title>
 
-    <meta name="theme-color" content="#d94e73">
-    <meta name="msapplication-navbutton-color" content="#d94e73">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#d94e73">
+  <!-- Theme color for tab (mobile) -->
+  <meta name="theme-color" content="#d94e73">
+  <meta name="msapplication-navbutton-color" content="#d94e73">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#d94e73">
 
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Quicksand', sans-serif;
-            background: linear-gradient(to bottom right, #fff0f5 20%, #d94e73 100%), url('Untitled design.png');
-            background-blend-mode: overlay;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            height: 100vh;
-            padding: 20px;
-        }
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-image: url('Untitled design.png');
+      background-size: cover;
+      background-repeat: repeat;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+      padding: 20px;
+    }
 
-        header {
-            width: 100%;
-            background-color: #d94e73;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 30px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-        }
+    header {
+      width: 100%;
+      background-color: #d94e73;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
 
-        footer {
-            width: 100%;
-            background-color: #d94e73;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            font-size: 14px;
-        }
+    footer {
+      width: 100%;
+      background-color: #d94e73;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      font-size: 14px;
+    }
 
-        .header-title {
-            font-size: 24px;
-            font-weight: bold;
-        }
+    .header-title {
+      font-size: 24px;
+      font-weight: bold;
+    }
 
-        .go-back {
-            background-color: #b8405f;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            outline: none;
-        }
+    .go-back {
+      background-color: #b8405f;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      outline: none;
+    }
 
-        .go-back:hover {
-            background-color: #a23550;
-        }
+    .go-back:hover {
+      background-color: #a23550;
+    }
 
-        .go-back:focus {
-            outline: 3px solid #f7b4c5;
-        }
+    .go-back:focus {
+      outline: 3px solid #f7b4c5;
+    }
 
-        .container {
-            max-width: 400px;
-            background-color: rgba(138, 57, 57, 0.9);
-            padding: 30px;
-            border-radius: 15px;
-            align-items: center;
-            box-shadow: 0 8px 25px rgba(217, 78, 115, 0.3);
-            margin-top: 100px;
-            margin-bottom: 60px;
-        }
+    .container {
+      max-width: 400px;
+      background-color: rgba(138, 57, 57, 0.9);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(217, 78, 115, 0.3);
+      margin-top: 100px;
+      margin-bottom: 60px;
+      width: 100%;
+    }
 
-        h2 {
-            font-size: 30px;
-            text-align: center;
-            color: #d94e73;
-            position: relative;
-            margin-bottom: 30px;
-        }
+    h2 {
+      font-size: 30px;
+      text-align: center;
+      color: #fff;
+      position: relative;
+      margin-bottom: 30px;
+    }
 
-        h2::after {
-            content: "❀";
-            font-size: 20px;
-            color: #d94e73;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: -15px;
-        }
+    h2::after {
+      content: "❀";
+      font-size: 20px;
+      color: #fff;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -15px;
+    }
 
-        label {
-            font-size: 14px;
-            color: #ffffff;
-            margin-bottom: 5px;
-            display: block;
-        }
+    label {
+      font-size: 14px;
+      color: #ffffff;
+      margin-bottom: 5px;
+      display: block;
+    }
 
-        input[type="date"],
-        input[type="number"] {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            font-size: 16px;
-            color: #555;
-            transition: border-color 0.3s ease;
-            background-color: #fdf2f6;
-        }
+    input[type="date"],
+    input[type="number"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+      color: #555;
+      background-color: #fdf2f6;
+    }
 
-        input[type="date"]:focus,
-        input[type="number"]:focus {
-            border-color: #d94e73;
-            outline: none;
-        }
+    input[type="date"]:focus,
+    input[type="number"]:focus {
+      border-color: #d94e73;
+      outline: none;
+    }
 
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #d94e73;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            outline: none;
-        }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #d94e73;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      outline: none;
+    }
 
-        button:hover {
-            background-color: #b8405f;
-            transform: scale(1.03);
-        }
+    button:hover {
+      background-color: #b8405f;
+      transform: scale(1.03);
+    }
 
-        button:focus {
-            outline: 3px solid #f7b4c5;
-        }
+    button:focus {
+      outline: 3px solid #f7b4c5;
+    }
 
-        .result {
-            text-align: center;
-            margin-top: 25px;
-            font-size: 18px;
-            color: #fffdfd;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-left: 4px solid #d94e73;
-            padding: 15px;
-            border-radius: 10px;
-        }
+    .result {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 18px;
+      color: #fffdfd;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-left: 4px solid #fcb3c5;
+      padding: 15px;
+      border-radius: 10px;
+    }
 
-        .result strong {
-            color: #fcb3c5;
-        }
+    .result strong {
+      color: #fcb3c5;
+    }
 
-        .calendar {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 5px;
-            margin-top: 20px;
-        }
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+      margin-top: 20px;
+    }
 
-        .calendar div {
-            padding: 10px;
-            background-color: #fdf2f6;
-            border-radius: 5px;
-            text-align: center;
-            font-size: 14px;
-        }
+    .calendar div {
+      padding: 10px;
+      background-color: #fdf2f6;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 14px;
+    }
 
-        .calendar div.selected {
-            background-color: #d94e73;
-            color: white;
-        }
+    .calendar div.selected {
+      background-color: #d94e73;
+      color: white;
+    }
 
-        .calendar div:hover {
-            background-color: #fcdde4;
-            cursor: pointer;
-        }
+    .calendar div.fertile {
+      background-color: #ffeb3b; /* Yellow for fertile days */
+      color: #000;
+    }
 
-        @media screen and (max-width: 500px) {
-            .container {
-                padding: 20px;
-            }
+    .calendar div.period {
+      background-color: #d94e73; /* Red for period days */
+      color: white;
+    }
 
-            h2 {
-                font-size: 22px;
-            }
+    @media screen and (max-width: 500px) {
+      .container {
+        padding: 20px;
+      }
 
-            button {
-                padding: 10px;
-            }
+      h2 {
+        font-size: 22px;
+      }
 
-            input[type="date"],
-            input[type="number"] {
-                padding: 10px;
-            }
+      button {
+        padding: 10px;
+      }
 
-            .calendar div {
-                font-size: 12px;
-            }
-        }
+      input[type="date"],
+      input[type="number"] {
+        padding: 10px;
+      }
 
-    </style>
+      .calendar div {
+        font-size: 12px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <div class="header-title">TrackHer</div>
-        <button class="go-back" onclick="history.back()">Go Back</button>
-    </header>
+  <header>
+    <div class="header-title">TrackHer</div>
+    <button class="go-back" onclick="history.back()">Go Back</button>
+  </header>
 
-    <div class="container">
-        <h2>Track Your Cycle</h2>
+  <div class="container">
+    <h2>Track Your Cycle</h2>
 
-        <label for="lastPeriod">Date of Last Period:</label>
-        <input type="date" id="lastPeriod" required>
+    <label for="lastPeriod">Date of Last Period:</label>
+    <input type="date" id="lastPeriod" required>
 
-        <label for="cycleLength">Average Cycle Length (in days):</label>
-        <input type="number" id="cycleLength" min="20" max="40" required>
+    <label for="cycleLength">Average Cycle Length (in days):</label>
+    <input type="number" id="cycleLength" min="20" max="40" required>
 
-        <button onclick="calculateNextPeriod()">Track</button>
+    <label for="periodLength">Average Period Length (in days):</label>
+    <input type="number" id="periodLength" min="1" max="10" required>
 
-        <div class="result" id="result"></div>
+    <button onclick="calculateNextPeriod()">Track</button>
 
-        <div class="calendar" id="calendar"></div>
-    </div>
+    <div class="result" id="result"></div>
+    <div class="calendar" id="calendar"></div>
+  </div>
 
-    <footer>
-        &copy; 2025 TrackHer. All rights reserved.
-    </footer>
+  <footer>
+    &copy; 2025 TrackHer. All rights reserved.
+  </footer>
 
-    <script>
-        function calculateNextPeriod() {
-            const lastPeriodDate = new Date(document.getElementById('lastPeriod').value);
-            const cycleLength = parseInt(document.getElementById('cycleLength').value);
+  <script>
+    function calculateNextPeriod() {
+      const lastPeriodValue = document.getElementById('lastPeriod').value;
+      const cycleLength = parseInt(document.getElementById('cycleLength').value);
+      const periodLength = parseInt(document.getElementById('periodLength').value);
 
-            if (!document.getElementById('lastPeriod').value || isNaN(cycleLength)) {
-                document.getElementById('result').innerHTML = "Please enter valid values.";
-                return;
-            }
+      if (!lastPeriodValue || isNaN(cycleLength) || isNaN(periodLength)) {
+        document.getElementById('result').innerHTML = "Please enter valid values.";
+        return;
+      }
 
-            const nextPeriodDate = new Date(lastPeriodDate);
-            nextPeriodDate.setDate(lastPeriodDate.getDate() + cycleLength);
+      const lastPeriodDate = new Date(lastPeriodValue);
+      const nextPeriodDate = new Date(lastPeriodDate);
+      nextPeriodDate.setDate(lastPeriodDate.getDate() + cycleLength);
 
-            document.getElementById('result').innerHTML =
-                `Your next period is expected to start on: <strong>${nextPeriodDate.toDateString()}</strong>`;
+      document.getElementById('result').innerHTML =
+        `Your next period is expected to start on: <strong>${nextPeriodDate.toDateString()}</strong>`;
 
-            showCalendar(nextPeriodDate);
+      showCalendar(nextPeriodDate, periodLength, cycleLength);
+    }
+
+    function showCalendar(periodDate, periodLength, cycleLength) {
+      const calendarContainer = document.getElementById('calendar');
+      const month = periodDate.getMonth();
+      const year = periodDate.getFullYear();
+      const selectedDay = periodDate.getDate();
+
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+      const firstDay = new Date(year, month, 1).getDay();
+
+      const fertileWindowStart = cycleLength - 14;
+      const fertileWindowEnd = fertileWindowStart + 5;
+
+      calendarContainer.innerHTML = '';
+
+      for (let i = 0; i < firstDay; i++) {
+        const empty = document.createElement('div');
+        calendarContainer.appendChild(empty);
+      }
+
+      for (let day = 1; day <= daysInMonth; day++) {
+        const dayDiv = document.createElement('div');
+        dayDiv.textContent = day;
+
+        // Highlight period days in red
+        if (day >= selectedDay && day < selectedDay + periodLength) {
+          dayDiv.classList.add('period');
         }
 
-        function showCalendar(nextPeriodDate) {
-            const calendarContainer = document.getElementById('calendar');
-            const month = nextPeriodDate.getMonth();
-            const year = nextPeriodDate.getFullYear();
-            const nextPeriodDay = nextPeriodDate.getDate();
-            const daysInMonth = new Date(year, month + 1, 0).getDate();
-            const firstDayOfMonth = new Date(year, month, 1).getDay();
-
-            calendarContainer.innerHTML = '';
-
-            for (let i = 0; i < firstDayOfMonth; i++) {
-                const emptyCell = document.createElement('div');
-                calendarContainer.appendChild(emptyCell);
-            }
-
-            for (let day = 1; day <= daysInMonth; day++) {
-                const dayCell = document.createElement('div');
-                dayCell.textContent = day;
-
-                if (day === nextPeriodDay) {
-                    dayCell.classList.add('selected');
-                }
-
-                calendarContainer.appendChild(dayCell);
-            }
+        // Highlight fertile days in yellow
+        if (day >= fertileWindowStart && day <= fertileWindowEnd) {
+          dayDiv.classList.add('fertile');
         }
-    </script>
+
+        // Highlight the selected day (next period day)
+        if (day === selectedDay) {
+          dayDiv.classList.add('selected');
+        }
+
+        calendarContainer.appendChild(dayDiv);
+      }
+    }
+  </script>
 
 </body>
 </html>
-
-    
