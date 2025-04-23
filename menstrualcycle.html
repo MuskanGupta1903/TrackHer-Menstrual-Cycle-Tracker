@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menstrual Cycle Information</title>
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -14,7 +18,7 @@
             background-repeat: no-repeat;
             background-position: center;
             background-color: #f3f1f8;
-            color: #1a1a1a; /* Improved contrast */
+            color: #1a1a1a;
             min-height: 100vh;
         }
 
@@ -77,16 +81,17 @@
             border-radius: 10px;
             padding: 20px;
             width: 250px;
-            box-shadow: 0 4px 8px rgba(241, 240, 240, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: #fff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .phase-card img {
-            width: 100%;
-            border-radius: 10px;
+        .phase-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
         .phase-card h3 {
-            color: #ffffff;
             margin-top: 15px;
         }
 
@@ -96,6 +101,44 @@
             text-align: center;
             padding: 15px;
             margin-top: 30px;
+        }
+
+        ul {
+            text-align: left;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        /* Back to Top Button */
+        #backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #d94e73;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            display: none;
+            font-size: 18px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        #backToTop:hover {
+            background-color: #c63a5f;
+        }
+
+        /* Fade-in animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -114,7 +157,7 @@
         </nav>
     </header>
 
-    <section id="intro">
+    <section id="intro" class="fade-in">
         <h2>What is the Menstrual Cycle?</h2>
         <p>
             The menstrual cycle is a natural, recurring process that happens in the female reproductive system. It typically lasts between 21 and 35 days. The cycle prepares the body for pregnancy, and if pregnancy does not occur, the lining of the uterus is shed, resulting in menstruation.
@@ -122,7 +165,7 @@
         <img src="The Menstrual Cycle_ Phases and Hormones - As Nature Intended.jpg" alt="Menstrual Cycle Overview" width="50%" style="max-width: 500px;">
     </section>
 
-    <section id="phases">
+    <section id="phases" class="fade-in">
         <h2>Phases of the Menstrual Cycle</h2>
         <p>There are four main phases in the menstrual cycle:</p>
 
@@ -149,7 +192,7 @@
         </div>
     </section>
 
-    <section id="tips">
+    <section id="tips" class="fade-in">
         <h2>Tips for a Healthy Menstrual Cycle</h2>
         <ul>
             <li>Track your cycle to better understand your body’s patterns and changes.</li>
@@ -160,7 +203,7 @@
         </ul>
     </section>
 
-    <section id="faq">
+    <section id="faq" class="fade-in">
         <h2>Frequently Asked Questions (FAQs)</h2>
         <h3>How long does a typical menstrual cycle last?</h3>
         <p>A typical cycle lasts between 21 and 35 days, with menstruation occurring at the start of the cycle.</p>
@@ -176,5 +219,42 @@
         &copy; 2024 Menstrual Health. All Rights Reserved.
     </footer>
 
+    <button id="backToTop" onclick="scrollToTop()">↑</button>
+
+    <script>
+        // Back to top button
+        const btn = document.getElementById("backToTop");
+
+        window.onscroll = function () {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                btn.style.display = "block";
+            } else {
+                btn.style.display = "none";
+            }
+
+            // Fade-in on scroll
+            document.querySelectorAll('.fade-in').forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    el.classList.add('visible');
+                }
+            });
+        };
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Initial fade-in for elements in view
+        window.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.fade-in').forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    el.classList.add('visible');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
+
