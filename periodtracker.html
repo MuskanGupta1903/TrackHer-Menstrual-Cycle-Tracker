@@ -206,27 +206,44 @@
       color: white;
     }
 
-    @media screen and (max-width: 500px) {
-      .container {
-        padding: 20px;
-      }
+    .symptom-tracker {
+      margin-top: 40px;
+      background-color: rgba(138, 57, 57, 0.9);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(217, 78, 115, 0.3);
+    }
 
-      h2 {
-        font-size: 22px;
-      }
+    .symptom-tracker input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+      color: #555;
+      background-color: #fdf2f6;
+    }
 
-      button {
-        padding: 10px;
-      }
+    .symptom-tracker button {
+      width: 100%;
+      padding: 12px;
+      background-color: #d94e73;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
 
-      input[type="date"],
-      input[type="number"] {
-        padding: 10px;
-      }
+    .symptom-tracker button:hover {
+      background-color: #b8405f;
+    }
 
-      .calendar div {
-        font-size: 12px;
-      }
+    .symptom-list {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #fff;
     }
   </style>
 </head>
@@ -255,11 +272,36 @@
     <div class="calendar" id="calendar"></div>
   </div>
 
+  <!-- Period Symptoms Tracker -->
+  <div class="symptom-tracker">
+    <h2>Track Your Symptoms</h2>
+
+    <label for="symptoms">Select Symptoms You Are Experiencing:</label>
+    <div id="symptoms">
+      <label><input type="checkbox" id="cramps"> Cramps</label>
+      <label><input type="checkbox" id="bloating"> Bloating</label>
+      <label><input type="checkbox" id="headaches"> Headaches</label>
+      <label><input type="checkbox" id="moodSwings"> Mood Swings</label>
+      <label><input type="checkbox" id="fatigue"> Fatigue</label>
+      <label><input type="checkbox" id="acne"> Acne</label>
+      <label><input type="checkbox" id="other"> Other</label>
+      <input type="text" id="otherSymptoms" placeholder="Specify other symptoms..." style="display:none;">
+    </div>
+
+    <button onclick="logSymptoms()">Log Symptoms</button>
+
+    <div id="loggedSymptoms" class="symptom-list">
+      <h3>Logged Symptoms:</h3>
+      <ul id="symptomsList"></ul>
+    </div>
+  </div>
+
   <footer>
     &copy; 2025 TrackHer. All rights reserved.
   </footer>
 
   <script>
+    // Calculate next period date
     function calculateNextPeriod() {
       const lastPeriodValue = document.getElementById('lastPeriod').value;
       const cycleLength = parseInt(document.getElementById('cycleLength').value);
@@ -280,6 +322,7 @@
       showCalendar(nextPeriodDate, periodLength, cycleLength);
     }
 
+    // Show the cycle calendar with highlighted period and fertile days
     function showCalendar(periodDate, periodLength, cycleLength) {
       const calendarContainer = document.getElementById('calendar');
       const month = periodDate.getMonth();
@@ -321,6 +364,43 @@
         calendarContainer.appendChild(dayDiv);
       }
     }
+
+    // Log symptoms to the list
+    function logSymptoms() {
+      const symptomsList = document.getElementById('symptomsList');
+      symptomsList.innerHTML = ''; // Clear previous list
+
+      const selectedSymptoms = [];
+
+      // Check if the user selected predefined symptoms
+      if (document.getElementById('cramps').checked) selectedSymptoms.push('Cramps');
+      if (document.getElementById('bloating').checked) selectedSymptoms.push('Bloating');
+      if (document.getElementById('headaches').checked) selectedSymptoms.push('Headaches');
+      if (document.getElementById('moodSwings').checked) selectedSymptoms.push('Mood Swings');
+      if (document.getElementById('fatigue').checked) selectedSymptoms.push('Fatigue');
+      if (document.getElementById('acne').checked) selectedSymptoms.push('Acne');
+
+      // Check if the user entered a custom symptom
+      if (document.getElementById('other').checked && document.getElementById('otherSymptoms').value.trim()) {
+        selectedSymptoms.push(document.getElementById('otherSymptoms').value.trim());
+      }
+
+      // Display the logged symptoms
+      if (selectedSymptoms.length > 0) {
+        selectedSymptoms.forEach(function(symptom) {
+          const listItem = document.createElement('li');
+          listItem.textContent = symptom;
+          symptomsList.appendChild(listItem);
+        });
+      } else {
+        symptomsList.innerHTML = '<li>No symptoms logged yet.</li>';
+      }
+    }
+
+    // Show/hide the "Other" input field based on user selection
+    document.getElementById('other').addEventListener('change', function() {
+      document.getElementById('otherSymptoms').style.display = this.checked ? 'block' : 'none';
+    });
   </script>
 
 </body>
