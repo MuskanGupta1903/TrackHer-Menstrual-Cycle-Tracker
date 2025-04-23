@@ -77,13 +77,14 @@
       font-size: 38px;
       text-align: center;
       margin-bottom: 5px;
+      color: #d94e73;
     }
 
     p {
       text-align: center;
       margin-bottom: 30px;
       font-size: 16px;
-      color: #444;
+      color: #d94e73;
     }
 
     .feedback-form {
@@ -118,14 +119,20 @@
       border-radius: 8px;
       font-size: 16px;
       background-color: #fff;
-      color: #333;
+      color: #d94e73;
       transition: box-shadow 0.2s ease;
+    }
+
+    .feedback-form input::placeholder,
+    .feedback-form textarea::placeholder {
+      color: #d94e73;
+      opacity: 0.8;
     }
 
     .feedback-form input:focus,
     .feedback-form textarea:focus {
       outline: none;
-      box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+      box-shadow: 0 0 8px rgba(217, 78, 115, 0.7);
     }
 
     .feedback-form textarea {
@@ -173,7 +180,7 @@
       left: 50%;
       transform: translate(-50%, -50%);
       background: white;
-      color: #333;
+      color: #d94e73;
       padding: 30px 40px;
       border-radius: 10px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
@@ -292,6 +299,6 @@
       }, 3000);
     });
   </script>
-
 </body>
 </html>
+
