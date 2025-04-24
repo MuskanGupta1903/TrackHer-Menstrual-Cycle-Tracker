@@ -183,14 +183,14 @@
     <h1>Privacy Policy</h1>
     <div class="tabs">
       <div class="tab-buttons">
-        <button class="active" onclick="openTab(event, 'intro')">Introduction</button>
-        <button onclick="openTab(event, 'collect')">Information We Collect</button>
-        <button onclick="openTab(event, 'use')">How We Use Your Info</button>
-        <button onclick="openTab(event, 'security')">Data Security</button>
-        <button onclick="openTab(event, 'cookies')">Cookies</button>
-        <button onclick="openTab(event, 'thirdparty')">Third-Party Links</button>
-        <button onclick="openTab(event, 'changes')">Policy Changes</button>
-        <button onclick="openTab(event, 'contact')">Contact Us</button>
+        <button class="active" onclick="openTab(event, 'intro')">📘 Introduction</button>
+        <button onclick="openTab(event, 'collect')">📥 Information We Collect</button>
+        <button onclick="openTab(event, 'use')">🔧 How We Use Your Info</button>
+        <button onclick="openTab(event, 'security')">🔒 Data Security</button>
+        <button onclick="openTab(event, 'cookies')">🍪 Cookies</button>
+        <button onclick="openTab(event, 'thirdparty')">🔗 Third-Party Links</button>
+        <button onclick="openTab(event, 'changes')">🔄 Policy Changes</button>
+        <button onclick="openTab(event, 'contact')">📬 Contact Us</button>
       </div>
 
       <div id="intro" class="tab-content active reveal">
@@ -241,54 +241,12 @@
         <p>We do not control the content or practices of third-party sites and are not liable for any damage or loss caused by your interactions with them.</p>
       </div>
       <div id="changes" class="tab-content reveal">
-        <p>We may update this Privacy Policy periodically to reflect changes in our practices or for other reasons. When we update our Privacy Policy, we will notify you by posting the new policy on this page and updating the date at the top.</p>
-        <p>We recommend that you review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
-      </div>
-      <div id="contact" class="tab-content reveal">
-        <p>If you have any questions or concerns about this Privacy Policy or our practices, feel free to contact us. You can reach us through the Contact page or email us directly at <a href="mailto:support@trackher.com">support@trackher.com</a>.</p>
-      </div>
-    </div>
-  </main>
-</div>
+        <p>We may update this Privacy Policy periodically to reflect changes in our practices or for other
 
-<!-- Footer -->
-<footer>
-  <div>&copy; 2024 TrackHer. All Rights Reserved.</div>
-  <div class="footer-links">
-    <a href="terms.html">Terms & Conditions</a>
-    <a href="feedback.html">Feedback</a>
-  </div>
-</footer>
 
-<!-- JavaScript -->
-<script>
-  function openTab(evt, tabName) {
-    const contents = document.querySelectorAll(".tab-content");
-    const buttons = document.querySelectorAll(".tab-buttons button");
 
-    contents.forEach((content) => content.classList.remove("active"));
-    buttons.forEach((btn) => btn.classList.remove("active"));
+    
 
-    document.getElementById(tabName).classList.add("active");
-    evt.currentTarget.classList.add("active");
-  }
-
-  function revealOnScroll() {
-    const reveals = document.querySelectorAll(".reveal");
-    reveals.forEach((el) => {
-      const top = el.getBoundingClientRect().top;
-      if (top < window.innerHeight - 100) {
-        el.classList.add("visible");
-      }
-    });
-  }
-
-  window.addEventListener("scroll", revealOnScroll);
-  window.addEventListener("load", revealOnScroll);
-</script>
-
-</body>
-</html>
 
    
    
