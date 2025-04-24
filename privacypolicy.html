@@ -5,17 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Privacy Policy</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    html, body {
       margin: 0;
       padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
       background-image: url('background.jpg.png');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
+    }
+
+    .fade-container {
+      flex: 1;
+      animation: fadeInBody 1.2s ease-in forwards;
+      opacity: 0;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
+    }
+
+    @keyframes fadeInBody {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     header {
@@ -63,7 +76,7 @@
       font-size: 36px;
       text-align: center;
       margin-bottom: 20px;
-      color: #d94e73; /* New color for heading */
+      color: #d94e73;
     }
 
     .tabs {
@@ -110,6 +123,17 @@
       display: block;
     }
 
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     footer {
       background-color: #d94e73;
       color: white;
@@ -139,6 +163,7 @@
 </head>
 <body>
 
+<div class="fade-container">
   <!-- Header -->
   <header>
     <div class="logo">TrackHer</div>
@@ -158,78 +183,117 @@
     <h1>Privacy Policy</h1>
     <div class="tabs">
       <div class="tab-buttons">
-        <button class="active" onclick="openTab(event, 'intro')">Introduction</button>
-        <button onclick="openTab(event, 'collect')">Information We Collect</button>
-        <button onclick="openTab(event, 'use')">How We Use Your Info</button>
-        <button onclick="openTab(event, 'security')">Data Security</button>
-        <button onclick="openTab(event, 'cookies')">Cookies</button>
-        <button onclick="openTab(event, 'thirdparty')">Third-Party Links</button>
-        <button onclick="openTab(event, 'changes')">Policy Changes</button>
-        <button onclick="openTab(event, 'contact')">Contact Us</button>
+        <button class="active" onclick="openTab(event, 'intro')">📘 Introduction</button>
+        <button onclick="openTab(event, 'collect')">📥 Information We Collect</button>
+        <button onclick="openTab(event, 'use')">🔧 How We Use Your Info</button>
+        <button onclick="openTab(event, 'security')">🔒 Data Security</button>
+        <button onclick="openTab(event, 'cookies')">🍪 Cookies</button>
+        <button onclick="openTab(event, 'thirdparty')">🔗 Third-Party Links</button>
+        <button onclick="openTab(event, 'changes')">🔄 Policy Changes</button>
+        <button onclick="openTab(event, 'contact')">📬 Contact Us</button>
       </div>
 
-      <div id="intro" class="tab-content active">
-        <p>Welcome to TrackHer! We are committed to protecting and respecting your privacy. This Privacy Policy explains how we collect, use, and disclose your personal information when you use our services.</p>
+      <div id="intro" class="tab-content active reveal">
+        <p>Welcome to TrackHer! We are here to commit to protecting your privacy and ensuring that your personal data is handled responsibly.</p>
+        <p>Our Privacy Policy outlines how we collect, use, and safeguard your personal information. Please take a moment to review it, as it helps you understand our approach to protecting your privacy while using our services.</p>
       </div>
-
-      <div id="collect" class="tab-content">
-        <p>We may collect personal information such as your name, email address, and other details necessary for providing our services. This information may be collected when you register on our website, subscribe to our newsletter, or interact with the website in other ways.</p>
+      <div id="collect" class="tab-content reveal">
+        <p>We may collect personal details like your name, email address, and any information you enter into the app. This helps us tailor your experience.</p>
+        <p>Additionally, we may collect data on your interactions with the app, such as your activity logs and preferences, which helps us improve our features and services.</p>
       </div>
-
-      <div id="use" class="tab-content">
-        <p>Your information may be used to:</p>
-        <ul>
-          <li>Provide and improve our services.</li>
-          <li>Send you updates and promotions related to our services.</li>
-          <li>Respond to your inquiries and provide customer support.</li>
-          <li>Monitor and analyze usage patterns to improve user experience.</li>
-        </ul>
+      <div id="use" class="tab-content reveal">
+        <p>We use your information to provide features, improve performance, and offer personalized support. Your data helps us enhance your experience and allows us to send you helpful notifications or updates related to your cycle tracking.</p>
+        <p>We also use your information for internal analytics to monitor app performance and user engagement, ensuring we continue to provide a valuable and efficient service.</p>
       </div>
-
-      <div id="security" class="tab-content">
-        <p>We take reasonable measures to protect your personal information from unauthorized access, alteration, or disclosure. However, no method of transmission over the internet or electronic storage is 100% secure, so we cannot guarantee absolute security.</p>
+      <div id="security" class="tab-content reveal">
+        <p>We implement industry-standard security measures including encryption and secure access to protect your information from unauthorized access. We regularly review our security procedures to ensure your data is protected at all times.</p>
+        <p>We also limit access to your personal data to authorized personnel only and provide regular training on data protection to our team members.</p>
       </div>
-
-      <div id="cookies" class="tab-content">
-        <p>Our website uses cookies to enhance your user experience. A cookie is a small text file that is stored on your device when you visit our website. You can choose to disable cookies in your browser settings, but please note that some features of the website may not function correctly without them.</p>
+      <div id="cookies" class="tab-content reveal">
+        <p>We use cookies for site analytics and improved usability. You can control cookie preferences through your browser settings. Cookies help us improve our website by tracking how users interact with it, making it more intuitive.</p>
+        <p>Our cookies also allow us to remember your preferences, such as language settings, for a more personalized browsing experience.</p>
       </div>
-
-      <div id="thirdparty" class="tab-content">
-        <p>Our website may contain links to third-party websites. We are not responsible for the content or privacy practices of these external sites. Please review their privacy policies before providing any personal information to them.</p>
+      <div id="thirdparty" class="tab-content reveal">
+        <p>Our platform may contain links to third-party websites. We are not responsible for their privacy practices. Once you leave our site, we encourage you to read the privacy policy of any third-party site you visit.</p>
+        <p>Some third-party services, like analytics tools, may also collect your data according to their own privacy policies. We encourage you to review their terms before using these services.</p>
       </div>
-
-      <div id="changes" class="tab-content">
-        <p>We may update our Privacy Policy from time to time. Any changes will be posted on this page with an updated revision date. We encourage you to review this policy periodically for any updates.</p>
+      <div id="changes" class="tab-content reveal">
+        <p>We may update this Privacy Policy periodically. We recommend reviewing it from time to time for any changes. Significant updates will be communicated to you via email or through a notification on our platform.</p>
+        <p>We strive to keep our users informed about how their data is being used, so you can feel confident in your privacy choices with us.</p>
       </div>
-
-      <div id="contact" class="tab-content">
-        <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:info@trackher.com">info@trackher.com</a>.</p>
+      <div id="contact" class="tab-content reveal">
+        <p>If you have questions about your privacy or how your data is handled, you can reach out to us via our Contact page or email us directly at support@trackher.com.</p>
+        <p>Our team is always here to assist you and address any concerns regarding your personal data and privacy rights.</p>
       </div>
     </div>
+
+    <!-- Consent Acknowledgement Section -->
+    <section style="text-align: center; margin: 40px auto;">
+      <h2 style="color: #d94e73;">User Consent</h2>
+      <p style="font-size: 18px; max-width: 800px; margin: 0 auto 20px;">
+        By clicking the button below, you acknowledge that you have read and understood our Privacy Policy.
+      </p>
+      <button onclick="handleConsent()" style="padding: 12px 28px; background-color: #d94e73; color: white; font-size: 18px; border: none; border-radius: 8px; cursor: pointer;">
+        I Agree
+      </button>
+      <p id="consent-status" style="margin-top: 15px; color: green; font-weight: bold;"></p>
+    </section>
   </main>
+</div>
 
-  <!-- Footer -->
-  <footer>
-    <div>&copy; 2024 TrackHer. All Rights Reserved.</div>
-    <div class="footer-links">
-      <a href="terms.html">Terms & Conditions</a>
-      <a href="feedback.html">Feedback</a>
-    </div>
-  </footer>
+<!-- Footer -->
+<footer>
+  <div>&copy; 2024 TrackHer. All Rights Reserved.</div>
+  <div class="footer-links">
+    <a href="terms.html">Terms & Conditions</a>
+    <a href="feedback.html">Feedback</a>
+  </div>
+</footer>
 
-  <!-- JavaScript -->
-  <script>
-    function openTab(evt, tabName) {
-      const contents = document.querySelectorAll(".tab-content");
-      const buttons = document.querySelectorAll(".tab-buttons button");
+<!-- JavaScript -->
+<script>
+  function openTab(evt, tabName) {
+    const contents = document.querySelectorAll(".tab-content");
+    const buttons = document.querySelectorAll(".tab-buttons button");
 
-      contents.forEach((content) => content.classList.remove("active"));
-      buttons.forEach((btn) => btn.classList.remove("active"));
+    contents.forEach((content) => content.classList.remove("active"));
+    buttons.forEach((btn) => btn.classList.remove("active"));
 
-      document.getElementById(tabName).classList.add("active");
-      evt.currentTarget.classList.add("active");
-    }
-  </script>
+    document.getElementById(tabName).classList.add("active");
+    evt.currentTarget.classList.add("active");
+  }
+
+  function revealOnScroll() {
+    const reveals = document.querySelectorAll(".reveal");
+    reveals.forEach((el) => {
+      const top = el.getBoundingClientRect().top;
+      if (top < window.innerHeight - 100) {
+        el.classList.add("visible");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", revealOnScroll);
+  window.addEventListener("load", revealOnScroll);
+
+  // Consent functionality
+  function handleConsent() {
+    localStorage.setItem("privacyConsent", "true");
+    document.getElementById("consent-status").innerText = "Thank you for consenting!";
+  }
+</script>
 
 </body>
 </html>
+
+
+
+
+    
+
+
+   
+   
+     
+
+
