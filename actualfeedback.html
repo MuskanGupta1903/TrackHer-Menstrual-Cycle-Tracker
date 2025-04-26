@@ -132,7 +132,8 @@
 
     .feedback-form input[type="text"],
     .feedback-form input[type="email"],
-    .feedback-form textarea {
+    .feedback-form textarea,
+    .feedback-form select {
       width: 100%;
       padding: 14px 16px;
       margin-top: 8px;
@@ -152,7 +153,8 @@
     }
 
     .feedback-form input:focus,
-    .feedback-form textarea:focus {
+    .feedback-form textarea:focus,
+    .feedback-form select:focus {
       outline: none;
       box-shadow: 0 0 10px rgba(217, 78, 115, 0.7);
     }
@@ -303,6 +305,12 @@
         <label for="comments">📝 Your Feedback:</label>
         <textarea id="comments" name="comments" required placeholder="Write your feedback..."></textarea>
 
+        <label for="rating" data-aos="fade-right" data-aos-delay="400">⭐ Your Rating (1-10):</label>
+        <select id="rating" name="rating" required>
+          <option value="">Select Rating</option>
+          ${[...Array(10).keys()].map(i => `<option value="${i+1}">${i+1}</option>`).join('')}
+        </select>
+
         <button type="submit">Submit Feedback</button>
       </form>
     </div>
@@ -339,8 +347,9 @@
       const name = form.name.value.trim();
       const email = form.email.value.trim();
       const comments = form.comments.value.trim();
+      const rating = form.rating.value;
 
-      if (!name || !email || !comments) {
+      if (!name || !email || !comments || !rating) {
         form.classList.add('shake');
         setTimeout(() => form.classList.remove('shake'), 400);
         return;
@@ -358,5 +367,6 @@
   </script>
 </body>
 </html>
+
 
 
