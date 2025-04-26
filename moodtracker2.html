@@ -6,7 +6,6 @@
   <title>Period Mood Tracker</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    /* Your existing styles - unchanged */
     * {
       margin: 0;
       padding: 0;
@@ -101,7 +100,8 @@
     }
 
     select,
-    input[type="date"] {
+    input[type="date"],
+    textarea {
       width: 100%;
       padding: 10px;
       margin-top: 5px;
@@ -194,6 +194,10 @@
         <option value="💪 Energetic">💪 Energetic</option>
       </select>
 
+      <!-- ✅ Mood Notes textarea added -->
+      <label for="comment">Mood Notes (Optional):</label>
+      <textarea id="comment" placeholder="Write more about how you're feeling..." rows="3"></textarea>
+
       <button type="submit">Save Mood</button>
       <button type="button" id="clearLog">Clear All</button>
     </form>
@@ -221,9 +225,10 @@
       e.preventDefault();
       const date = document.getElementById("date").value;
       const mood = document.getElementById("mood").value;
+      const comment = document.getElementById("comment").value.trim();
       if (!date || !mood) return alert("Please fill in all fields!");
 
-      moodData.push({ date, mood });
+      moodData.push({ date, mood, comment });
       saveAndRender();
       form.reset();
     });
@@ -248,6 +253,7 @@
         logEntry.className = "log";
         logEntry.innerHTML = `
           <span><strong>${entry.date}</strong> - ${entry.mood}</span>
+          <span style="font-size: 12px; color: #444;"><em>${entry.comment || ''}</em></span>
           <div class="log-buttons">
             <button onclick="editEntry(${index})">Edit</button>
             <button onclick="deleteEntry(${index})">Delete</button>
@@ -257,9 +263,10 @@
     }
 
     window.editEntry = (index) => {
-      const { date, mood } = moodData[index];
+      const { date, mood, comment } = moodData[index];
       document.getElementById("date").value = date;
       document.getElementById("mood").value = mood;
+      document.getElementById("comment").value = comment || "";
       moodData.splice(index, 1);
       saveAndRender();
     };
@@ -301,4 +308,5 @@
   </script>
 </body>
 </html>
+
 
