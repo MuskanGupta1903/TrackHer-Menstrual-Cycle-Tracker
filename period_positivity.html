@@ -244,5 +244,27 @@
     <footer>
         &copy; 2024 Period Positivity. All Rights Reserved.
     </footer>
+    <script>
+    const quotes = [
+        "Your body is not wrong, society's expectations are.",
+        "Menstruation is powerful, not shameful.",
+        "You are brave, you are beautiful, you are enough.",
+        "Every cycle is a reminder of your strength.",
+        "There’s no shame in something so natural."
+    ];
+
+    let quoteIndex = 0;
+    const quoteText = document.getElementById('quoteText');
+
+    setInterval(() => {
+        quoteText.style.opacity = 0;
+        setTimeout(() => {
+            quoteIndex = (quoteIndex + 1) % quotes.length;
+            quoteText.textContent = quotes[quoteIndex];
+            quoteText.style.opacity = 1;
+        }, 500);
+    }, 4000);
+</script>
+
 </body>
 </html>
