@@ -201,6 +201,32 @@
         <h1>Welcome to Our Period Tracking Website</h1>
         <h1>TrackHer</h1>
     </main>
+<section style="background-color: #fff0f5; padding: 40px 20px; text-align: center; animation: fadeIn 2s ease-out;">
+    <h2 style="font-size: 32px; color: #d94e73; margin-bottom: 20px;">Did You Know?</h2>
+    <div id="factBox" style="font-size: 20px; max-width: 600px; margin: 0 auto; color: #444;">
+        Periods affect over 800 million people worldwide every day!
+    </div>
+</section>
+
+<script>
+    const facts = [
+        "An average person menstruates for about 7 years in their lifetime.",
+        "Menstrual products are still taxed as luxury items in some countries.",
+        "Exercise can actually help reduce period cramps.",
+        "The average cycle lasts about 28 days—but it can vary widely.",
+        "Over 500 million people lack access to menstrual hygiene products.",
+        "Tracking your cycle can help detect health issues early.",
+        "Menstruation is a sign of a healthy reproductive system."
+    ];
+
+    let currentFact = 0;
+    const factBox = document.getElementById("factBox");
+
+    setInterval(() => {
+        currentFact = (currentFact + 1) % facts.length;
+        factBox.textContent = facts[currentFact];
+    }, 5000); // change every 5 seconds
+</script>
 
     <footer>
         <div class="footer-container">
