@@ -7,10 +7,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
+    /* Your existing CSS (no changes needed) */
+    * { box-sizing: border-box; }
     body {
       font-family: 'Roboto', Arial, sans-serif;
       margin: 0;
@@ -22,7 +20,6 @@
       position: relative;
       animation: fadeIn 1s ease-in-out;
     }
-
     body::before {
       content: "";
       position: absolute;
@@ -30,12 +27,10 @@
       background: rgba(255, 255, 255, 0.6);
       z-index: -1;
     }
-
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
     header {
       background-color: #d94e73;
       color: white;
@@ -45,31 +40,20 @@
       align-items: center;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     }
-
-    .logo {
-      font-size: 28px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-
+    .logo { font-size: 28px; font-weight: bold; letter-spacing: 1px; }
     nav ul {
       list-style: none;
       display: flex;
       margin: 0;
       padding: 0;
     }
-
-    nav ul li {
-      margin: 0 15px;
-    }
-
+    nav ul li { margin: 0 15px; }
     nav ul li a {
       color: white;
       text-decoration: none;
       font-size: 16px;
       position: relative;
     }
-
     nav ul li a::after {
       content: "";
       position: absolute;
@@ -80,11 +64,7 @@
       bottom: -3px;
       transition: 0.3s;
     }
-
-    nav ul li a:hover::after {
-      width: 100%;
-    }
-
+    nav ul li a:hover::after { width: 100%; }
     main {
       flex: 1;
       margin: 40px 20px;
@@ -93,21 +73,18 @@
       align-items: center;
       justify-content: center;
     }
-
     h1 {
       font-size: 40px;
       text-align: center;
       margin-bottom: 10px;
       color: #d94e73;
     }
-
     p {
       text-align: center;
       margin-bottom: 30px;
       font-size: 17px;
       color: #d94e73;
     }
-
     .feedback-form {
       max-width: 600px;
       width: 90%;
@@ -119,17 +96,12 @@
       color: white;
       transition: transform 0.3s ease;
     }
-
-    .feedback-form:hover {
-      transform: translateY(-5px);
-    }
-
+    .feedback-form:hover { transform: translateY(-5px); }
     .feedback-form label {
       font-size: 18px;
       margin-bottom: 8px;
       display: block;
     }
-
     .feedback-form input[type="text"],
     .feedback-form input[type="email"],
     .feedback-form textarea,
@@ -145,25 +117,18 @@
       color: #d94e73;
       transition: box-shadow 0.3s ease;
     }
-
     .feedback-form input::placeholder,
     .feedback-form textarea::placeholder {
       color: #d94e73;
       opacity: 0.8;
     }
-
     .feedback-form input:focus,
     .feedback-form textarea:focus,
     .feedback-form select:focus {
       outline: none;
       box-shadow: 0 0 10px rgba(217, 78, 115, 0.7);
     }
-
-    .feedback-form textarea {
-      min-height: 140px;
-      resize: vertical;
-    }
-
+    .feedback-form textarea { min-height: 140px; resize: vertical; }
     .feedback-form button {
       width: 100%;
       padding: 14px;
@@ -176,22 +141,16 @@
       cursor: pointer;
       transition: background 0.3s ease, transform 0.2s ease;
     }
-
     .feedback-form button:hover {
       background: #f3d2da;
       transform: scale(1.03);
     }
-
-    .shake {
-      animation: shake 0.3s ease-in-out;
-    }
-
+    .shake { animation: shake 0.3s ease-in-out; }
     @keyframes shake {
       0%, 100% { transform: translateX(0); }
       20%, 60% { transform: translateX(-6px); }
       40%, 80% { transform: translateX(6px); }
     }
-
     .popup {
       display: none;
       position: fixed;
@@ -208,18 +167,15 @@
       text-align: center;
       animation: popupSlide 0.5s ease forwards;
     }
-
     @keyframes popupSlide {
       from { transform: translate(-50%, -60%) scale(0.5); opacity: 0; }
       to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
     }
-
     .popup span {
       font-size: 36px;
       display: block;
       margin-bottom: 15px;
     }
-
     .popup button {
       margin-top: 15px;
       background: #d94e73;
@@ -229,7 +185,6 @@
       border-radius: 8px;
       cursor: pointer;
     }
-
     footer {
       background-color: #d94e73;
       color: white;
@@ -238,14 +193,12 @@
       font-size: 14px;
       margin-top: auto;
     }
-
     footer .footer-links a {
       color: white;
       text-decoration: none;
       margin: 0 10px;
       position: relative;
     }
-
     footer .footer-links a:hover::after {
       content: '';
       width: 100%;
@@ -256,25 +209,11 @@
       left: 0;
       transition: 0.3s;
     }
-
-    footer .socials {
-      margin-top: 8px;
-      font-size: 20px;
-    }
-
+    footer .socials { margin-top: 8px; font-size: 20px; }
     @media (max-width: 600px) {
-      h1 {
-        font-size: 30px;
-      }
-
-      .feedback-form {
-        padding: 25px;
-      }
-
-      .popup {
-        width: 90%;
-        font-size: 18px;
-      }
+      h1 { font-size: 30px; }
+      .feedback-form { padding: 25px; }
+      .popup { width: 90%; font-size: 18px; }
     }
   </style>
 </head>
@@ -308,7 +247,16 @@
         <label for="rating" data-aos="fade-right" data-aos-delay="400">⭐ Your Rating (1-10):</label>
         <select id="rating" name="rating" required>
           <option value="">Select Rating</option>
-          ${[...Array(10).keys()].map(i => `<option value="${i+1}">${i+1}</option>`).join('')}
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
         </select>
 
         <button type="submit">Submit Feedback</button>
@@ -367,6 +315,9 @@
   </script>
 </body>
 </html>
+
+
+
 
 
 
