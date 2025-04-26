@@ -6,6 +6,7 @@
   <title>Period Mood Tracker</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
+    /* Your existing styles - unchanged */
     * {
       margin: 0;
       padding: 0;
@@ -136,12 +137,17 @@
       margin: 5px 0;
       border-radius: 5px;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column;
     }
 
     .log span {
-      flex: 1;
+      margin-bottom: 4px;
+    }
+
+    .log-buttons {
+      margin-top: 5px;
+      display: flex;
+      justify-content: flex-end;
     }
 
     .log-buttons button {
@@ -254,7 +260,7 @@
       const { date, mood } = moodData[index];
       document.getElementById("date").value = date;
       document.getElementById("mood").value = mood;
-      moodData.splice(index, 1); // remove current entry before editing
+      moodData.splice(index, 1);
       saveAndRender();
     };
 
@@ -264,9 +270,7 @@
     };
 
     function renderChart() {
-      const dates = moodData.map(entry => entry.date);
       const moods = moodData.map(entry => entry.mood.split(" ")[1]);
-
       const moodCounts = {};
       moods.forEach(mood => moodCounts[mood] = (moodCounts[mood] || 0) + 1);
 
@@ -293,8 +297,8 @@
       });
     }
 
-    // Init
     saveAndRender();
   </script>
 </body>
 </html>
+
