@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/MuskanGupta1903/TrackHer-Menstrual-Cycle-Tracker/blob/302a0d8de1fe53bba68c0cdca7038fa649ff6ae0/TrackHer%20-%20Menstrua-Cycle%20-Trackerl.png?raw=true" alt="TrackHer Banner" width="100%" />
+</p>
+
 # TrackHer
 Source Code Management Project ( Menstrual Cycle Tracker - TrackHer ) 
 
@@ -50,7 +54,4 @@ muskan0465.becse24@chitkara.edu.in
 himanshi409.becse24@chitkara.edu.in
 himanshi408.becse24@chitkara.edu.in
 mishthi457.becse24@chitkara.edu.in
-
-
-
 
