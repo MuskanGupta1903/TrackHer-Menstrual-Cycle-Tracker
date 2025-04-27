@@ -23,61 +23,79 @@
 }
 
         /* General body styles */
-        body {
-            font-family: Arial, sans-serif;
-            background-image: url('homebg.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
+        
+            body {
+    font-family: Arial, sans-serif;
+    background-image: url('backgroundimg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+        
 
         /* Header styles */
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 30px;
-            background-color: #440e0e;
-            color: white;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 1.5s ease-out;
-        }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #440e0e;
+    color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1.5s ease-out;
+}
 
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            text-align: center;
-        }
+/* Logo text size reduced */
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
 
-        nav ul {
-            list-style: none;
-            display: flex;
-        }
+/* Nav link text size reduced */
+nav ul {
+    list-style: none;
+    display: flex;
+}
 
-        nav ul li {
-            margin: 0 15px;
-        }
+nav ul li {
+    margin: 0 15px;
+}
 
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
 
-        nav ul li a:hover {
-            color: #ffd1dc;
-        }
+nav ul li a:hover {
+    color: #ffd1dc;
+}
+
+/* Responsive tweaks for smaller screens */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 18px;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+    }
+}
 
         /* Footer styles */
         footer {
@@ -191,15 +209,18 @@
     <header>
         <div class="logo">TrackHer</div>
         <nav>
-            <ul>
-                <li><a href="homepageoffile.html">Home</a></li>
-                <li><a href="periodtracker.html">Tracker</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="menstrualcycle.html">Menstrual Cycle</a></li>
-            </ul>
+          <ul>
+            <li><a href="homepage.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="periodtracker.html">Menstrual Tracker</a></li>
+            <li><a href="moodtracker2 (1).html">Mood Tracker</a></li>
+            <li><a href="menstrualcycle.html">Menstrual Cycle</a></li>
+            <li><a href="period_positivity.html">Period Positivity</a></li>
+            <li><a href="actualfeedback.html">Feedback</a></li>
+            <li><a href="privacypolicy.html">Privacy Policy</a></li>
+          </ul>
         </nav>
-    </header>
-
+      </header>
     <!-- Main Content -->
     <div class="main-container">
         <!-- Welcome Section -->
@@ -208,7 +229,7 @@
             <p>
                 Menstruation is a natural and essential part of life. It’s time to break the stigma and celebrate the strength and resilience of individuals who experience it. Period positivity is all about embracing menstruation with confidence, empathy, and pride.
             </p>
-            <img src="banner.jpg" alt="Period positivity banner">
+            <img src="edu.jpeg" alt="Period positivity banner">
         </div>
 
         <!-- Importance of Education -->
@@ -217,7 +238,7 @@
             <p>
                 Lack of education around menstruation perpetuates taboos and misinformation. By normalizing conversations, we empower individuals with the knowledge they need for better health, self-care, and confidence. Understanding your cycle fosters respect and body positivity.
             </p>
-            <img src="education.jpg" alt="Educating about menstruation">
+            <img src="periodbanner.jpeg" alt="Educating about menstruation">
         </div>
 
         <!-- Tips for Supporting Period Positivity -->
@@ -299,7 +320,7 @@
 
     <!-- Footer Section -->
     <footer>
-        &copy; 2024 Period Positivity. All Rights Reserved.
+        &copy; 2025 Period Positivity. All Rights Reserved.
     </footer>
     <script>
     const quotes = [
