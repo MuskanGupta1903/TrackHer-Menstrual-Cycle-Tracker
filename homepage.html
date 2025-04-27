@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website for period tracker</title>
+    <title>My Website</title>
     <style>
+        html {
+    scroll-behavior: smooth;
+}
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -30,10 +34,13 @@
         }
 
         .logo {
-            font-size: 24px;
-            font-weight: bold;
-            opacity: 0;
-            animation: fadeInLogo 1s forwards;
+            .logo {
+    font-size: 24px;
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeInLogo 1s forwards, glowPulse 2s ease-in-out infinite alternate;
+}
+
         }
 
         nav ul {
@@ -73,7 +80,7 @@
 
         h1 {
             font-size: 48px;
-            color: white;
+            color: #d94e73;
             margin-bottom: 20px;
             opacity: 0;
             animation: fadeInText 1s ease-out forwards;
@@ -94,6 +101,7 @@
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: transform 0.5s ease;
+            animation: floaty 3s ease-in-out infinite;
         }
 
         .side-image:hover {
@@ -102,16 +110,16 @@
         }
 
         .side-image.left {
-            left: 15px;
-            background: url('affirmation.jpg') no-repeat center center / cover;
-            animation: slideInLeft 1s ease-out;
-        }
+    left: 15px;
+    background: url('pic1.jpeg') no-repeat center center / cover;
+    animation: slideInLeft 1s ease-out;
+}
 
-        .side-image.right {
-            right: 15px;
-            background: url('hygiene.jpg') no-repeat center center / cover;
-            animation: slideInRight 1s ease-out;
-        }
+.side-image.right {
+    right: 15px;
+    background: url('pic2.jpeg') no-repeat center center / cover;
+    animation: slideInRight 1s ease-out;
+}
 
         footer {
             background-color: #d94e73;
@@ -187,46 +195,23 @@
     <header>
         <div class="logo">TrackHer</div>
         <nav>
-            <ul>
-                <li><a href="periodtracker.html">Tracker</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="periodpositivity.html">Period Positivity</a></li>
-                <li><a href="menstrualcycle.html">Menstrual Cycle</a></li>
-                <li><a href="moodtracker2.html">Mood Tracker</a></li>
-            </ul>
+          <ul>
+            <li><a href="homepage.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="periodtracker.html">Menstrual Tracker</a></li>
+            <li><a href="moodtracker2 (1).html">Mood Tracker</a></li>
+            <li><a href="menstrualcycle.html">Menstrual Cycle</a></li>
+            <li><a href="period_positivity.html">Period Positivity</a></li>
+            <li><a href="actualfeedback.html">Feedback</a></li>
+            <li><a href="privacypolicy.html">Privacy Policy</a></li>
+          </ul>
         </nav>
-    </header>
+      </header>
 
     <main>
         <h1>Welcome to Our Period Tracking Website</h1>
-        <h1> TrackHer </h1>
+        <h1>TrackHer</h1>
     </main>
-<section style="background-color: #fff0f5; padding: 40px 20px; text-align: center; animation: fadeIn 2s ease-out;">
-    <h2 style="font-size: 32px; color: #d94e73; margin-bottom: 20px;">Did You Know?</h2>
-    <div id="factBox" style="font-size: 20px; max-width: 600px; margin: 0 auto; color: #444;">
-        Periods affect over 800 million people worldwide every day!
-    </div>
-</section>
-
-<script>
-    const facts = [
-        "An average person menstruates for about 7 years in their lifetime.",
-        "Menstrual products are still taxed as luxury items in some countries.",
-        "Exercise can actually help reduce period cramps.",
-        "The average cycle lasts about 28 days—but it can vary widely.",
-        "Over 500 million people lack access to menstrual hygiene products.",
-        "Tracking your cycle can help detect health issues early.",
-        "Menstruation is a sign of a healthy reproductive system."
-    ];
-
-    let currentFact = 0;
-    const factBox = document.getElementById("factBox");
-
-    setInterval(() => {
-        currentFact = (currentFact + 1) % facts.length;
-        factBox.textContent = facts[currentFact];
-    }, 5000); // change every 5 seconds
-</script>
 
     <footer>
         <div class="footer-container">
@@ -234,8 +219,9 @@
                 <a href="feedback.html">Privacy Policy</a>
                 <a href="actualfeedback.html">Feedback</a>
             </div>
-            &copy; 2024 My Website. All Rights Reserved.
+            &copy; 2025 My Website. All Rights Reserved.
         </div>
     </footer>
 </body>
 </html>
+
