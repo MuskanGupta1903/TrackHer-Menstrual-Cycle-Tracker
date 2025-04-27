@@ -58,19 +58,19 @@
     }
     nav ul li a {
       color: #ffffff;
-      background-color: #c63a5f;
+      background-color: transparent; /* No background */
       text-decoration: none;
       font-size: 16px;
       padding: 8px 15px;
       border-radius: 8px;
-      transition: background-color 0.3s, transform 0.3s;
+      transition: color 0.3s, transform 0.3s;
       display: inline-block;
     }
     nav ul li a:hover,
     nav ul li a:focus-visible {
-      background-color: #a32d4a;
+      color: #ffd6e0; /* Light pink on hover */
       transform: translateY(-2px);
-      text-decoration: none;
+      text-decoration: underline; /* Underline on hover */
       outline: none;
     }
     .header-text {
@@ -319,4 +319,3 @@
 
 </body>
 </html>
-
