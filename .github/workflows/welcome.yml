@@ -1,0 +1,17 @@
+name: Greet New Contributor
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Greet the contributor
+        run: |
+          echo "Hello @${{ github.actor }}! Thank you for your first pull request!"
