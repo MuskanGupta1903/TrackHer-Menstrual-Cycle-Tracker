@@ -31,9 +31,14 @@
       top: 0;
       z-index: 1000;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .header-text {
+      margin-bottom: 15px;
     }
 
     header h1 {
@@ -48,17 +53,11 @@
       color: #fdfdfd;
     }
 
-    .header-text {
-      display: flex;
-      flex-direction: column;
-    }
-
     nav {
       display: flex;
-      gap: 15px;
       flex-wrap: wrap;
-      justify-content: flex-end;
-      align-items: center;
+      justify-content: center;
+      gap: 15px;
     }
 
     nav ul {
@@ -196,17 +195,13 @@
     }
 
     @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
       nav {
-        justify-content: flex-start;
+        flex-direction: column;
       }
 
       nav ul {
-        justify-content: flex-start;
+        flex-direction: column;
+        align-items: center;
       }
 
       .phase-card {
