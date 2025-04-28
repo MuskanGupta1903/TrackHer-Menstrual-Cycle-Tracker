@@ -1,17 +1,29 @@
-name: Greet New Contributor
+# .github/workflows/trackher.yml
+name: Deploy TrackHer
 
 on:
-  pull_request:
-    types: [opened]
+  push:
+    branches:
+      - main
 
 jobs:
-  greet:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Greet the contributor
-        run: |
-          echo "Hello @${{ github.actor }}! Thank you for your first pull request!"
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy
+        run: echo "Deploying TrackHer..." # replace with your real deployment command
