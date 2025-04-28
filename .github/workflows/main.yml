@@ -1,0 +1,26 @@
+# .github/workflows/main.yml
+
+name: Deploy TrackHer Static Website
+
+on:
+  push:
+    branches:
+      - main  # or the branch you are using
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Upload static files as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: trackher-static-site
+          path: |
+            ./*.html
+            ./*.css
+            ./*.js
+            ./*.png
