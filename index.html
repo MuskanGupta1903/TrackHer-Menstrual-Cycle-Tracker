@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <style>
+        html {
+    scroll-behavior: smooth;
+}
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('backgroundimg.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #d94e73;
+            color: white;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .logo {
+            .logo {
+    font-size: 24px;
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeInLogo 1s forwards, glowPulse 2s ease-in-out infinite alternate;
+}
+
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            opacity: 0;
+            animation: fadeInNav 2s forwards;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url('backgroundimg.png');
+            animation: slideInMain 1.5s ease-out;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: #d94e73;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeInText 1s ease-out forwards;
+        }
+
+        h1:nth-of-type(2) {
+            font-size: 60px;
+            animation: fadeInText 1.5s ease-out forwards, scaleUp 1.5s 1.5s forwards, changeColor 3s infinite;
+        }
+
+        .side-image {
+            position: fixed;
+            top: 50%;
+            width: 120px;
+            height: 200px;
+            transform: translateY(-50%);
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s ease;
+            animation: floaty 3s ease-in-out infinite;
+        }
+
+        .side-image:hover {
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .side-image.left {
+    left: 15px;
+    background: url('pic1.jpeg') no-repeat center center / cover;
+    animation: slideInLeft 1s ease-out;
+}
+
+.side-image.right {
+    right: 15px;
+    background: url('pic2.jpeg') no-repeat center center / cover;
+    animation: slideInRight 1s ease-out;
+}
+
+        footer {
+            background-color: #d94e73;
+            color: white;
+            padding: 15px 20px;
+            position: relative;
+            text-align: center;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #ffd1dc;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ff91aa;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeInLogo {
+            0% { opacity: 0; transform: translateX(-50px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes fadeInNav {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInMain {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInText {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes scaleUp {
+            0% { transform: scale(0.8); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes changeColor {
+            0% { color: white; }
+            50% { color: #ff5733; }
+            100% { color: white; }
+        }
+    </style>
+</head>
+<body>
+    <div class="side-image left"></div>
+    <div class="side-image right"></div>
+
+    <header>
+        <div class="logo">TrackHer</div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="periodtracker.html">Menstrual Tracker</a></li>
+            <li><a href="moodtracker2 (1).html">Mood Tracker</a></li>
+            <li><a href="menstrualcycle.html">Menstrual Cycle</a></li>
+            <li><a href="period_positivity.html">Period Positivity</a></li>
+            <li><a href="actualfeedback.html">Feedback</a></li>
+            <li><a href="privacypolicy.html">Privacy Policy</a></li>
+          </ul>
+        </nav>
+      </header>
+
+    <main>
+        <h1>Welcome to Our Period Tracking Website</h1>
+        <h1>TrackHer</h1>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="feedback.html">Privacy Policy</a>
+                <a href="actualfeedback.html">Feedback</a>
+            </div>
+            &copy; 2025 My Website. All Rights Reserved.
+        </div>
+    </footer>
+</body>
+</html>
+

@@ -1,191 +1,434 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menstrual Cycle Tracker</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menstrual Cycle Tracker</title>
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background-image: url('homepagebg.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            height: 100vh;
-            padding: 20px;
-        }
+  <!-- Theme color for tab (mobile) -->
+  <meta name="theme-color" content="#d94e73">
+  <meta name="msapplication-navbutton-color" content="#d94e73">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#d94e73">
 
-        header {
-            width: 100%;
-            background-color: #4e161f;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 30px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            position: fixed;
-            top: 0;
-            left: 0;
-        }
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
 
-        .header-title {
-            font-size: 24px;
-            font-weight: bold;
-        }
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
 
-        .go-back {
-            background-color: rgb(99, 24, 24);
-            color: #cc2f56;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        .go-back:hover {
-            background-color: #801c1c;
-            color: white;
-        }
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background-image: url('Untitled design.png');
+      background-size: cover;
+      background-repeat: repeat;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+      padding: 20px;
+    }
 
-        .container {
-            max-width: 400px;
-            background-color: rgb(138, 57, 57);
-            padding: 30px;
-            border-radius: 15px;
-            align-items: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            margin-top: 100px; /* To offset the fixed header */
-        }
+    header {
+      width: 100%;
+      background-color: #d94e73;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
 
-        h2 {
-            text-align: center;
-            font-family: 'Trebuchet MS', Tahoma, sans-serif; 
-            font-size: 36px;   
-            color:rgb(255, 255, 255);
-            margin-bottom: 20px;
-        }
-        
-        label {
-            font-size: 14px;
-            color: #ffffff;
-            margin-bottom: 5px;
-            display: block;
-        }
+    footer {
+      width: 100%;
+      background-color: #d94e73;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      font-size: 14px;
+    }
 
-        input[type="date"], 
-        input[type="number"] {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            font-size: 16px;
-            color: #555;
-            transition: border-color 0.3s ease;
-        }
+    .header-title {
+      font-size: 24px;
+      font-weight: bold;
+    }
 
-        input[type="date"]:focus, 
-        input[type="number"]:focus {
-            border-color: #531c23;
-            outline: none;
-        }
+    .go-back {
+      background-color: #b8405f;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      outline: none;
+    }
 
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #752020;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+    .go-back:hover {
+      background-color: #a23550;
+    }
 
-        button:hover {
-            background-color: #962828;
-        }
+    .go-back:focus {
+      outline: 3px solid #f7b4c5;
+    }
 
-        .result {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 18px;
-            color: #fffdfd;
-        }
+    .container {
+      max-width: 400px;
+      background-color: #d94e73;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px #d94e73;
+      margin-top: 100px;
+      margin-bottom: 60px;
+      width: 100%;
+    }
 
-        .result strong {
-            color: #cc6c6c;
-        }
+    h2 {
+      font-size: 30px;
+      text-align: center;
+      color: #fff;
+      position: relative;
+      margin-bottom: 30px;
+    }
 
-        /* Responsive Styling */
-        @media screen and (max-width: 500px) {
-            .container {
-                padding: 20px;
-            }
+    h2::after {
+      content: "❀";
+      font-size: 20px;
+      color: #fff;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -15px;
+    }
 
-            h2 {
-                font-size: 22px;
-            }
+    label {
+      font-size: 14px;
+      color: #ffffff;
+      margin-bottom: 5px;
+      display: block;
+    }
 
-            button {
-                padding: 10px;
-            }
+    input[type="date"],
+    input[type="number"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+      color: #555;
+      background-color: #fdf2f6;
+    }
 
-            input[type="date"], 
-            input[type="number"] {
-                padding: 10px;
-            }
-        }
-    </style>
+    input[type="date"]:focus,
+    input[type="number"]:focus {
+      border-color: #d94e73;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #d94e73;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      outline: none;
+    }
+
+    button:hover {
+      background-color: #b8405f;
+      transform: scale(1.03);
+    }
+
+    button:focus {
+      outline: 3px solid #f7b4c5;
+    }
+
+    .result {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 18px;
+      color: #fffdfd;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-left: 4px solid #fcb3c5;
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    .result strong {
+      color: #fcb3c5;
+    }
+
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+      margin-top: 20px;
+    }
+
+    .calendar div {
+      padding: 10px;
+      background-color: #fdf2f6;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .calendar div.selected {
+      background-color: #84344a;
+      color: white;
+    }
+
+    .calendar div.fertile {
+      background-color: #ffe67a;
+      color: #000;
+    }
+
+    .calendar div.period {
+      background-color: #f35c7a;
+      color: white;
+    }
+
+    .legend {
+      margin-top: 20px;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .legend p {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+
+    .legend-box {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      margin-right: 8px;
+    }
+
+    .legend-box.period {
+      background-color: #f35c7a;
+    }
+
+    .legend-box.fertile {
+      background-color: #ffe67a;
+    }
+
+    .legend-box.selected {
+      background-color: #84344a;
+    }
+
+    .symptom-tracker {
+      margin-top: 40px;
+      background-color: #d94e73;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px #d94e73;
+    }
+
+    .symptom-tracker input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 16px;
+      color: #555;
+      background-color: #fdf2f6;
+    }
+
+    .symptom-tracker button {
+      width: 100%;
+      padding: 12px;
+      background-color: #d94e73;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .symptom-tracker button:hover {
+      background-color: #b8405f;
+    }
+
+    .symptom-list {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <div class="header-title">TrackHer</div>
-        <button class="go-back" onclick="history.back()">Go Back</button>
-    </header>
+  <header>
+    <div class="header-title">TrackHer</div>
+    <button class="go-back" onclick="history.back()">Go Back</button>
+  </header>
 
-    <div class="container">
-        <h2>Track Your Cycle</h2>
-        <label for="lastPeriod">Date of Last Period:</label>
-        <input type="date" id="lastPeriod" required>
+  <div class="container">
+    <h2>Track Your Cycle</h2>
 
-        <label for="cycleLength">Average Cycle Length (in days):</label>
-        <input type="number" id="cycleLength" min="20" max="40" required>
+    <label for="lastPeriod">Date of Last Period:</label>
+    <input type="date" id="lastPeriod" required>
 
-        <button onclick="calculateNextPeriod()">Track</button>
+    <label for="cycleLength">Average Cycle Length (in days):</label>
+    <input type="number" id="cycleLength" min="20" max="40" required>
 
-        <div class="result" id="result"></div>
+    <label for="periodLength">Average Period Length (in days):</label>
+    <input type="number" id="periodLength" min="1" max="10" required>
+
+    <button onclick="calculateNextPeriod()">Track</button>
+
+    <div class="result" id="result"></div>
+    <div class="calendar" id="calendar"></div>
+
+    <!-- Color Legend -->
+    <div class="legend">
+      <p><span class="legend-box period"></span> Period Days</p>
+      <p><span class="legend-box fertile"></span> Fertile Window</p>
+      <p><span class="legend-box selected"></span> Predicted Start Date</p>
     </div>
+  </div>
 
-    <script>
-        function calculateNextPeriod() {
-            const lastPeriodDate = new Date(document.getElementById('lastPeriod').value);
-            const cycleLength = parseInt(document.getElementById('cycleLength').value);
+  <div class="symptom-tracker">
+    <h2>Track Your Symptoms</h2>
+    <label for="symptoms">Select Symptoms You Are Experiencing:</label>
+    <div id="symptoms">
+      <label><input type="checkbox" id="cramps"> Cramps</label>
+      <label><input type="checkbox" id="bloating"> Bloating</label>
+      <label><input type="checkbox" id="headaches"> Headaches</label>
+      <label><input type="checkbox" id="moodSwings"> Mood Swings</label>
+      <label><input type="checkbox" id="fatigue"> Fatigue</label>
+      <label><input type="checkbox" id="acne"> Acne</label>
+      <label><input type="checkbox" id="other"> Other</label>
+      <input type="text" id="otherSymptoms" placeholder="Specify other symptoms..." style="display:none;">
+    </div>
+    <button onclick="logSymptoms()">Log Symptoms</button>
+    <div id="loggedSymptoms" class="symptom-list">
+      <h3>Logged Symptoms:</h3>
+      <ul id="symptomsList"></ul>
+    </div>
+  </div>
 
-            if (!isNaN(lastPeriodDate) && !isNaN(cycleLength)) {
-                const nextPeriodDate = new Date(lastPeriodDate);
-                nextPeriodDate.setDate(lastPeriodDate.getDate() + cycleLength);
+  <footer>
+    &copy; 2025 TrackHer. All rights reserved.
+  </footer>
 
-                document.getElementById('result').innerHTML = 
-                    `Your next period is expected to start on: <strong>${nextPeriodDate.toDateString()}</strong>`;
-            } else {
-                document.getElementById('result').innerHTML = "Please enter valid values.";
-            }
+  <script>
+    function calculateNextPeriod() {
+      const lastPeriodValue = document.getElementById('lastPeriod').value;
+      const cycleLength = parseInt(document.getElementById('cycleLength').value);
+      const periodLength = parseInt(document.getElementById('periodLength').value);
+
+      if (!lastPeriodValue || isNaN(cycleLength) || isNaN(periodLength)) {
+        document.getElementById('result').innerHTML = "Please enter valid values.";
+        return;
+      }
+
+      const lastPeriodDate = new Date(lastPeriodValue);
+      const nextPeriodDate = new Date(lastPeriodDate);
+      nextPeriodDate.setDate(lastPeriodDate.getDate() + cycleLength);
+
+      document.getElementById('result').innerHTML =
+        `Your next period is expected to start on: <strong>${nextPeriodDate.toDateString()}</strong>`;
+
+      showCalendar(nextPeriodDate, periodLength, cycleLength);
+    }
+
+    function showCalendar(periodDate, periodLength, cycleLength) {
+      const calendarContainer = document.getElementById('calendar');
+      const month = periodDate.getMonth();
+      const year = periodDate.getFullYear();
+      const selectedDay = periodDate.getDate();
+
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+      const firstDay = new Date(year, month, 1).getDay();
+
+      const fertileWindowStart = cycleLength - 14;
+      const fertileWindowEnd = fertileWindowStart + 5;
+
+      calendarContainer.innerHTML = '';
+
+      for (let i = 0; i < firstDay; i++) {
+        const empty = document.createElement('div');
+        calendarContainer.appendChild(empty);
+      }
+
+      for (let day = 1; day <= daysInMonth; day++) {
+        const dayDiv = document.createElement('div');
+        dayDiv.textContent = day;
+
+        if (day >= selectedDay && day < selectedDay + periodLength) {
+          dayDiv.classList.add('period');
         }
-    </script>
+
+        if (day >= fertileWindowStart && day <= fertileWindowEnd) {
+          dayDiv.classList.add('fertile');
+        }
+
+        if (day === selectedDay) {
+          dayDiv.classList.add('selected');
+        }
+
+        calendarContainer.appendChild(dayDiv);
+      }
+    }
+
+    function logSymptoms() {
+      const symptomsList = document.getElementById('symptomsList');
+      symptomsList.innerHTML = '';
+      const selectedSymptoms = [];
+
+      if (document.getElementById('cramps').checked) selectedSymptoms.push('Cramps');
+      if (document.getElementById('bloating').checked) selectedSymptoms.push('Bloating');
+      if (document.getElementById('headaches').checked) selectedSymptoms.push('Headaches');
+      if (document.getElementById('moodSwings').checked) selectedSymptoms.push('Mood Swings');
+      if (document.getElementById('fatigue').checked) selectedSymptoms.push('Fatigue');
+      if (document.getElementById('acne').checked) selectedSymptoms.push('Acne');
+
+      if (document.getElementById('other').checked && document.getElementById('otherSymptoms').value.trim()) {
+        selectedSymptoms.push(document.getElementById('otherSymptoms').value.trim());
+      }
+
+      if (selectedSymptoms.length > 0) {
+        selectedSymptoms.forEach(function(symptom) {
+          const listItem = document.createElement('li');
+          listItem.textContent = symptom;
+          symptomsList.appendChild(listItem);
+        });
+      } else {
+        symptomsList.innerHTML = '<li>No symptoms logged yet.</li>';
+      }
+    }
+
+    document.getElementById('other').addEventListener('change', function() {
+      document.getElementById('otherSymptoms').style.display = this.checked ? 'block' : 'none';
+    });
+  </script>
 </body>
 </html>
-
